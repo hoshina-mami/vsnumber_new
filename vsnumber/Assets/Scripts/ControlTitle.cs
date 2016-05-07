@@ -28,20 +28,30 @@ public class ControlTitle : MonoBehaviour {
 	
 	}
 
-	// SingleModeボタンを選択
-	public void tapSigleMode () {
+	// メニューボタンを選択
+	public void tapButton (string target) {
 
 		//GetComponent<AudioSource>().Play();
 
 		hideObjects ();
 
-		Invoke("LoadInGameSingle",  0.6f);
+		if (target == "InGameSingle") {
+			Invoke("LoadInGameSingle",  0.4f);
+		} else if (target == "InGameVs") {
+			Invoke("LoadInGameVs",  0.4f);
+		}
+		
 
 	}
 
     // SingleMode選択画面へとぶ
     public void LoadInGameSingle () {
-        //Application.LoadLevel("InGameSingle");
+        Application.LoadLevel("InGameSingle");
+    }
+
+	// VsMode選択画面へとぶ
+    public void LoadInGameVs () {
+        Application.LoadLevel("InGameVs");
     }
 
 
