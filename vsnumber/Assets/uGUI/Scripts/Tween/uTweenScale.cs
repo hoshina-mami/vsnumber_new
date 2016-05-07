@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System;
 
 namespace uTools {
 	[AddComponentMenu("uTools/Tween/Tween Scale(uTools)")]
 	
-	public class uTweenScale : uTween<Vector3> {
+	public class uTweenScale : uTweener {
+
+		public Vector3 from = Vector3.zero;
+		public Vector3 to = Vector3.one;
 
 		RectTransform mRectTransform;
 
 		public RectTransform cachedRectTransform { get { if (mRectTransform == null) mRectTransform = GetComponent<RectTransform>(); return mRectTransform;}}
-		public override Vector3 value {
+		public Vector3 value {
 			get { return cachedRectTransform.localScale;}
 			set { cachedRectTransform.localScale = value;}
 		}
@@ -22,8 +24,7 @@ namespace uTools {
 		}
 
 		public static uTweenScale Begin(GameObject go, Vector3 from, Vector3 to, float duration = 1f, float delay = 0f) {
-			uTweenScale comp = Begin<uTweenScale>(go, duration);
-            comp.value = from;
+			uTweenScale comp = uTweener.Begin<uTweenScale>(go, duration);
 			comp.from = from;
 			comp.to = to;
 			comp.duration = duration;
@@ -34,5 +35,5 @@ namespace uTools {
 			}
 			return comp;
 		}
-    }
+	}
 }

@@ -5,13 +5,14 @@ using System.Collections;
 namespace uTools {
 	[AddComponentMenu("uTools/Tween/Tween Text(uTools)")]	
 	
-	public class uTweenText : uTween<float> {
+	public class uTweenText : uTweenValue {
 
 		private Text mText;
 		public Text cacheText {
 			get {
+				mText = GetComponent<Text>();
 				if (mText == null) {
-					mText = GetComponent<Text>();
+					Debug.LogError("'uTweenText' can't find 'Text'");
 				}
 				return mText;
 			}
@@ -22,14 +23,13 @@ namespace uTools {
 		/// </summary>
 		public int digits;
 
-		protected override void OnUpdate(float value, bool isFinished)
+		protected override void ValueUpdate (float value, bool isFinished)
 		{
 			cacheText.text = (System.Math.Round(value, digits)).ToString();
 		}
 
-		public static uTweenText Begin(Text label, float from, float to, float duration, float delay) {
-			uTweenText comp = Begin<uTweenText>(label.gameObject, duration);
-            comp.value = from;
+		public static uTweenText Begin(Text label, float duration, float delay, float from, float to) {
+			uTweenText comp = uTweener.Begin<uTweenText>(label.gameObject, duration);
 			comp.from = from;
 			comp.to = to;
 			comp.delay = delay;

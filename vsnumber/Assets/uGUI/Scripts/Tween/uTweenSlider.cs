@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace uTools {
 	[AddComponentMenu("uTools/Tween/Tween Slider(uTools)")]	
-	public class uTweenSlider : uTween<float> {
+	public class uTweenSlider : uTweenValue {
 
 		private Slider mSlider;
 		public Slider cacheSlider {
@@ -34,14 +34,13 @@ namespace uTools {
 			}
 		}
 
-		protected override void OnUpdate (float value, bool isFinished)
+		protected override void ValueUpdate (float value, bool isFinished)
 		{
 			this.sliderValue = value;
 		}
 
-		public static uTweenSlider Begin(Slider slider, float from, float to, float duration, float delay) {
-			uTweenSlider comp = Begin<uTweenSlider>(slider.gameObject, duration);
-            comp.value = from;
+		public static uTweenSlider Begin(Slider slider, float duration, float delay, float from, float to) {
+			uTweenSlider comp = uTweener.Begin<uTweenSlider>(slider.gameObject, duration);
 			comp.from = from;
 			comp.to = to;
 			comp.delay = delay;

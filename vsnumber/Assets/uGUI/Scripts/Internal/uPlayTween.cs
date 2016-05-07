@@ -6,20 +6,15 @@ using System.Collections;
 namespace uTools {
 	[AddComponentMenu("uTools/Internal/Play Tween(uTools)")]
 	public class uPlayTween : MonoBehaviour, uIPointHandler {
-		public GameObject tweenTarget;
-        public Direction playDirection = Direction.Forward;
+		public uTweener tweenTarget;
+		public PlayDirection playDirection = PlayDirection.Forward;
 		public Trigger trigger = Trigger.OnPointerClick;
-		public int tweenGroup = 0;
-		public bool inCludeChildren = false;
-
-		private uTweener[] mTweeners;
 
 		// Use this for initialization
 		void Start () {
 			if (tweenTarget == null) {
-				tweenTarget = gameObject;
+				tweenTarget = GetComponent<uTweener>();
 			}		
-			mTweeners = inCludeChildren? tweenTarget.GetComponentsInChildren<uTweener>() : tweenTarget.GetComponents<uTweener>();
 		}
 
 		public void OnPointerEnter (PointerEventData eventData) {
@@ -52,20 +47,11 @@ namespace uTools {
 		/// Play this instance.
 		/// </summary>
 		private void Play() {
-            if (playDirection == Direction.Toggle)
-            {
-				foreach (var item in mTweeners) {
-					if (item.tweenGroup == tweenGroup) {
-						item.Toggle();
-					}
-				}
+			if (playDirection == PlayDirection.Toggle) {
+				tweenTarget.Toggle();
 			}
 			else {
-				foreach (var item in mTweeners) {
-					if (item.tweenGroup == tweenGroup) {
-						item.Play(playDirection == Direction.Forward);
-					}
-				}
+				tweenTarget.Play(playDirection);
 			}
 		}
 
