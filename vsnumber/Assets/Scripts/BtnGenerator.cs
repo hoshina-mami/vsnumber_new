@@ -15,6 +15,7 @@ public class BtnGenerator : MonoBehaviour {
 	private Vector3 newScale;
 	private Vector3 newPosition;
 	private Text cloneBtnNum;
+	private int[] deck = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 	//private int _HighScoreStageNum;
 
 	// Use this for initialization
@@ -27,6 +28,12 @@ public class BtnGenerator : MonoBehaviour {
 		newScale.y = 1.2f;
 		newScale.z = 1.2f;
 
+        for (int i = 0; i < deck.Length; i++) {
+            int temp = deck[i];
+            int randomIndex = Random.Range(0, deck.Length);
+            deck[i] = deck[randomIndex];
+            deck[randomIndex] = temp;
+        }
 		GanerateBtns();
 	
 	}
@@ -39,7 +46,6 @@ public class BtnGenerator : MonoBehaviour {
 
     // ボタンの生成をスタート
     public void GanerateBtns () {
-        Debug.Log("ok");
 
         for (int i = 0; i < 3; i++) {
 
@@ -47,23 +53,24 @@ public class BtnGenerator : MonoBehaviour {
 			cloneBox.transform.SetParent(Content.transform, true );
 			cloneBox.transform.localScale = newScale;
 
-			for (int j = 1; j < 6; j++) {
+			for (int j = 0; j < 5; j++) {
 
 				cloneBtn = (GameObject)Instantiate(Btn_inGame);
 				cloneBtn.transform.SetParent(cloneBox.transform, true );
 				cloneBtn.transform.localScale = newScale;
 
+				//数字を設定
 				int thisStageNum = j + i * 5;
 				cloneBtnNum = cloneBtn.GetComponentInChildren<Text>();
-				cloneBtnNum.text = thisStageNum.ToString();
+				cloneBtnNum.text = deck[thisStageNum].ToString();
 
-				//ボタンのアクティブ・非アクティブを設定
-				//if (thisStageNum == 1 || thisStageNum <= (_HighScoreStageNum + 1)) {
-				//	cloneBtn.GetComponent<Button>().interactable = true;
-				//}
+				//ボタンを非アクティブにしておく
+				//cloneBtn.GetComponent<Button>().interactable = false;
 
 			}
 
 		}
+
+		Content.SetActive (false);
     }
 }

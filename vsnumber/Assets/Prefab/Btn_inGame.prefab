@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11478744}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: gameBtnNumber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,13 +28,26 @@ GameObject:
   - 222: {fileID: 22244440}
   - 114: {fileID: 11493564}
   - 114: {fileID: 11413510}
+  - 114: {fileID: 11405878}
+  - 114: {fileID: 11417728}
   m_Layer: 5
   m_Name: Btn_inGame
-  m_TagString: Untagged
+  m_TagString: gameBtn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11405878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9c80971ce8b4b4eacf306c5ab418eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11413510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,9 +86,60 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11493564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11405878}
+        m_MethodName: tapNumBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11417728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191556}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8e8bc72a1bae24ca3aeb5fc44ea84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  easeType: 22
+  loopStyle: 0
+  delay: 0
+  duration: 0.1
+  ignoreTimeScale: 1
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  from: {r: 1, g: 1, b: 1, a: 1}
+  to: {r: 0.4705882, g: 0.48442903, b: 0.48442903, a: 1}
+  includeChilds: 1
 --- !u!114 &11478744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,10 +161,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 19a56e5704b7144acac439cd309ff179, type: 3}
-    m_FontSize: 50
+    m_FontSize: 0
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 0
     m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -191,6 +255,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_SizeDelta.x
       value: 90
       objectReference: {fileID: 0}
@@ -201,6 +269,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Transition
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_FontSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: gameBtnNumber
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

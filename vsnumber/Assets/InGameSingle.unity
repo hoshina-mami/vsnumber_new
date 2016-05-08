@@ -521,8 +521,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154583871}
-        m_MethodName: 
+      - m_Target: {fileID: 154583873}
+        m_MethodName: startGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -933,7 +933,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10.011322, y: 98.3}
+  m_AnchoredPosition: {x: 10.011322, y: 91.6}
   m_SizeDelta: {x: 360.9248, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270330337
