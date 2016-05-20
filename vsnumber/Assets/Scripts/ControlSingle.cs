@@ -9,19 +9,29 @@ public class ControlSingle : MonoBehaviour {
 	private GameObject Btn_return;
 	private GameObject Btn_start;
 	private GameObject Content;
+	private GameObject Content2;
+	private GameObject Text_bestRecord;
+	private GameObject Text_countDown;
+	private Text Text_countDown_text;
 
 	private int CurrentNum;//現在の数を保存する変数
+	private int CountDownNum;//ゲーム開始時のカウントダウン
 
 	// Use this for initialization
 	void Start () {
 		Application.targetFrameRate = 60;
 
-        GameUi       = GameObject.Find("GameUi");
-        Btn_return   = GameObject.Find("Btn_return");
-        Btn_start    = GameObject.Find("Btn_start");
-        Content      = GameObject.Find("Content");
+        GameUi          = GameObject.Find("GameUi");
+        Btn_return      = GameObject.Find("Btn_return");
+        Btn_start       = GameObject.Find("Btn_start");
+        Content         = GameObject.Find("Content");
+        Content2        = GameObject.Find("Content2");
+        Text_bestRecord = GameObject.Find("Text_bestRecord");
+        Text_countDown  = GameObject.Find("Text_countDown");
+        Text_countDown_text = Text_countDown.GetComponent<Text> ();
 
         CurrentNum = 1;
+        CountDownNum = 3;
 	
 	}
 	
@@ -36,6 +46,8 @@ public class ControlSingle : MonoBehaviour {
 		//GetComponent<AudioSource>().Play();
 
 		GameUi.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		Content.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		Content2.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 
 		Invoke("LoadTitle",  0.4f);
 
@@ -57,12 +69,20 @@ public class ControlSingle : MonoBehaviour {
     // startボタン選択でゲームスタート
     public void startGame () {
     	Btn_start.SetActive (false);
+    	Text_bestRecord.SetActive (false);
+    	Text_countDown.SetActive (true);
 
-    	//ボタンをアクティブにする
-    	Content.SetActive (true);
+    	//カウントダウン
+    	Invoke("countDownNumber",  0.5f);
+    	Invoke("countDownNumber",  1.5f);
+    	Invoke("countDownNumber",  2.5f);
 
-    	//タイマーをスタートする
+    	//タップスタート
+    	Invoke("startTapNumber",  3.5f);
+
+    	
     }
+
 
     /*
 	 * 次に押すべきボタンナンバーを返す
@@ -72,6 +92,7 @@ public class ControlSingle : MonoBehaviour {
 		return CurrentNum;
 	}
 
+
 	/*
 	 * ボタンナンバーを更新
 	 */
@@ -79,7 +100,8 @@ public class ControlSingle : MonoBehaviour {
 		 CurrentNum++;
 
 		 if (CurrentNum == 16) {
-Debug.Log("clear");
+		 	//クリア表示
+		 	Text_countDown_text.text  = "complete!";
 		 }
 	}
 
@@ -88,6 +110,34 @@ Debug.Log("clear");
     public void tapNumberBtn () {
     	Debug.Log("tap");
     }
+
+
+    /*
+	 * ゲーム内容の開始
+	 */
+	void startTapNumber () {
+
+		Text_countDown_text.text  = "";
+
+		//ボタンをアクティブにする
+    	Content.SetActive (true);
+    	Content2.SetActive (false);
+
+    	//タイマーをスタートする
+	}
+
+
+
+
+
+    //ゲーム開始時のカウントダウン
+    void countDownNumber () {
+
+		Text_countDown_text.text  = CountDownNum.ToString();
+
+		CountDownNum = CountDownNum - 1;
+
+	}
 
 
 

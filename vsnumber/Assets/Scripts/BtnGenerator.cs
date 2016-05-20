@@ -10,6 +10,7 @@ public class BtnGenerator : MonoBehaviour {
 
 	//private
 	private GameObject Content;
+	private GameObject Content2;
 	private GameObject cloneBox;
 	private GameObject cloneBtn;
 	private Vector3 newScale;
@@ -23,6 +24,7 @@ public class BtnGenerator : MonoBehaviour {
 		Application.targetFrameRate = 60;
 
 		Content = GameObject.Find("Content");
+		Content2 = GameObject.Find("Content2");
 
 		newScale.x = 1.2f;
 		newScale.y = 1.2f;
@@ -35,11 +37,6 @@ public class BtnGenerator : MonoBehaviour {
             deck[randomIndex] = temp;
         }
 		GanerateBtns();
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	
 	}
 
@@ -72,5 +69,26 @@ public class BtnGenerator : MonoBehaviour {
 		}
 
 		Content.SetActive (false);
+
+
+		for (int k = 0; k < 3; k++) {
+
+			cloneBox = (GameObject)Instantiate(BtnBox);
+			cloneBox.transform.SetParent(Content2.transform, true );
+			cloneBox.transform.localScale = newScale;
+
+			for (int l = 0; l < 5; l++) {
+
+				cloneBtn = (GameObject)Instantiate(Btn_inGame);
+				cloneBtn.transform.SetParent(cloneBox.transform, true );
+				cloneBtn.transform.localScale = newScale;
+
+
+				//ボタンを非アクティブにしておく
+				//cloneBtn.GetComponent<Button>().interactable = false;
+
+			}
+
+		}
     }
 }
