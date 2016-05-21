@@ -10,9 +10,11 @@ public class ControlSingle : MonoBehaviour {
 	private GameObject Btn_start;
 	private GameObject Content;
 	private GameObject Content2;
+	private GameObject Box_Timer;
 	private GameObject Text_bestRecord;
 	private GameObject Text_countDown;
 	private Text Text_countDown_text;
+	private Timer Timer;
 
 	private int CurrentNum;//現在の数を保存する変数
 	private int CountDownNum;//ゲーム開始時のカウントダウン
@@ -26,12 +28,16 @@ public class ControlSingle : MonoBehaviour {
         Btn_start       = GameObject.Find("Btn_start");
         Content         = GameObject.Find("Content");
         Content2        = GameObject.Find("Content2");
+        Box_Timer        = GameObject.Find("Box_Timer");
         Text_bestRecord = GameObject.Find("Text_bestRecord");
         Text_countDown  = GameObject.Find("Text_countDown");
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
+        Timer           = Box_Timer.GetComponent<Timer>();
 
         CurrentNum = 1;
         CountDownNum = 3;
+
+        Box_Timer.SetActive(false);
 	
 	}
 	
@@ -68,8 +74,8 @@ public class ControlSingle : MonoBehaviour {
 
     // startボタン選択でゲームスタート
     public void startGame () {
-    	Btn_start.SetActive (false);
-    	Text_bestRecord.SetActive (false);
+    	Btn_start.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+    	Text_bestRecord.GetComponent<uTools.uTweenAlpha> ().enabled = true;
     	Text_countDown.SetActive (true);
 
     	//カウントダウン
@@ -79,7 +85,6 @@ public class ControlSingle : MonoBehaviour {
 
     	//タップスタート
     	Invoke("startTapNumber",  3.5f);
-
     	
     }
 
@@ -101,7 +106,8 @@ public class ControlSingle : MonoBehaviour {
 
 		 if (CurrentNum == 16) {
 		 	//クリア表示
-		 	Text_countDown_text.text  = "complete!";
+		 	Timer.setStartFlg(false);
+		 	//Text_countDown_text.text  = "complete!";
 		 }
 	}
 
@@ -124,6 +130,8 @@ public class ControlSingle : MonoBehaviour {
     	Content2.SetActive (false);
 
     	//タイマーをスタートする
+    	//Timer.setStartFlg(true);
+    	Box_Timer.SetActive(true);
 	}
 
 

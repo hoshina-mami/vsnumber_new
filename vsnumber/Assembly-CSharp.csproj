@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\ControlMainVS.cs" />
      <Compile Include="Assets\Scripts\ControlSingle.cs" />
      <Compile Include="Assets\Scripts\ControlTitle.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uDragObject.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uEnum.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uPlayTween.cs" />
