@@ -64,7 +64,20 @@ public class Timer : MonoBehaviour {
 	 * タイマーのフラグをセットする
 	 */
 	public void setStartFlg (bool flg) {
-		Debug.Log(flg);
         isStarted = flg;
+    }
+
+
+    /*
+	 * 今回のタイムを返す
+	 */
+	public int getCurrentMin () {
+        return MinCount;
+    }
+    public int getCurrentSec () {
+        return SecCount;
+    }
+    public float getCurrentDec () {
+        return DecCount;
     }
 }

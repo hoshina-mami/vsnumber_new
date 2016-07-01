@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\BtnControl.cs" />
      <Compile Include="Assets\Scripts\BtnGenerator.cs" />
      <Compile Include="Assets\Scripts\ControlMainVS.cs" />
+     <Compile Include="Assets\Scripts\ControlResult.cs" />
      <Compile Include="Assets\Scripts\ControlSingle.cs" />
      <Compile Include="Assets\Scripts\ControlTitle.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />

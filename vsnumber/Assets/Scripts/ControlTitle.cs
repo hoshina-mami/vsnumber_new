@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ControlTitle : MonoBehaviour {
 
@@ -46,12 +47,12 @@ public class ControlTitle : MonoBehaviour {
 
     // SingleMode選択画面へとぶ
     public void LoadInGameSingle () {
-        Application.LoadLevel("InGameSingle");
+    	SceneManager.LoadScene("InGameSingle");
     }
 
 	// VsMode選択画面へとぶ
     public void LoadInGameVs () {
-        Application.LoadLevel("InGameVs");
+    	SceneManager.LoadScene("InGameVs");
     }
 
 

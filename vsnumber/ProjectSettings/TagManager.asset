@@ -6,6 +6,7 @@ TagManager:
   tags:
   - gameBtn
   - gameBtnNumber
+  - currentRecord
   layers:
   - Default
   - TransparentFX

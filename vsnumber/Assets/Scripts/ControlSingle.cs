@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ControlSingle : MonoBehaviour {
 
@@ -12,12 +13,24 @@ public class ControlSingle : MonoBehaviour {
 	private GameObject Content2;
 	private GameObject Box_Timer;
 	private GameObject Text_bestRecord;
+	private GameObject Text_bestTime;
+	private GameObject Text_bestName;
 	private GameObject Text_countDown;
+	private GameObject Text_complete;
 	private Text Text_countDown_text;
 	private Timer Timer;
 
 	private int CurrentNum;//現在の数を保存する変数
 	private int CountDownNum;//ゲーム開始時のカウントダウン
+	private int BestMinCount;
+	private int BestSecCount;
+	private float BestDecCount;
+
+	private string MinText;
+	private string SecText;
+	private string DecText;
+
+	private string BestName;
 
 	// Use this for initialization
 	void Start () {
@@ -28,9 +41,12 @@ public class ControlSingle : MonoBehaviour {
         Btn_start       = GameObject.Find("Btn_start");
         Content         = GameObject.Find("Content");
         Content2        = GameObject.Find("Content2");
-        Box_Timer        = GameObject.Find("Box_Timer");
+        Box_Timer       = GameObject.Find("Box_Timer");
         Text_bestRecord = GameObject.Find("Text_bestRecord");
+        Text_bestTime   = GameObject.Find("Text_bestTime");
+        Text_bestName   = GameObject.Find("Text_bestName");
         Text_countDown  = GameObject.Find("Text_countDown");
+        Text_complete   = GameObject.Find("Text_complete");
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
         Timer           = Box_Timer.GetComponent<Timer>();
 
@@ -38,22 +54,29 @@ public class ControlSingle : MonoBehaviour {
         CountDownNum = 3;
 
         Box_Timer.SetActive(false);
+
+        BestMinCount = PlayerPrefs.GetInt("BestMin");
+		BestSecCount = PlayerPrefs.GetInt("BestSec");
+		BestDecCount = PlayerPrefs.GetFloat("BestDec");
+
+		if(PlayerPrefs.GetString("BestName") == "") {
+			BestName = "AAA";
+		} else {
+			BestName = PlayerPrefs.GetString("BestName");
+		}
+
+        showBestRecord();
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 
 	// 戻るボタンを選択
 	public void tapReturnButton () {
 
 		//GetComponent<AudioSource>().Play();
 
-		GameUi.GetComponent<uTools.uTweenAlpha> ().enabled = true;
-		Content.GetComponent<uTools.uTweenAlpha> ().enabled = true;
-		Content2.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		HideContents();
 
 		Invoke("LoadTitle",  0.4f);
 
@@ -61,7 +84,31 @@ public class ControlSingle : MonoBehaviour {
 
     // タイトル画面へとぶ
     public void LoadTitle () {
-        Application.LoadLevel("Title");
+        SceneManager.LoadScene("Title");
+    }
+
+    //これまでの最高記録を表示
+    void showBestRecord () {
+
+    	if (BestMinCount < 10) {
+			MinText = string.Format ("0{0}", BestMinCount.ToString ());
+		} else {
+			MinText = string.Format ("{0}", BestMinCount.ToString ());
+		}
+		if (BestSecCount < 10) {
+			SecText = string.Format ("0{0}", BestSecCount.ToString ());
+		} else {
+			SecText = string.Format ("{0}", BestSecCount.ToString ());
+		}
+		if (BestDecCount >= 0 && BestDecCount < 9.9) {
+			DecText = string.Format ("0{0}", BestDecCount.ToString ("f0"));
+		} else if (BestDecCount < 99.9) {
+			DecText = string.Format ("{0}", BestDecCount.ToString ("f0"));
+		}
+
+		Text_bestTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
+		Text_bestName.GetComponent<Text> ().text = "by " + BestName;
+
     }
 
 
@@ -107,7 +154,14 @@ public class ControlSingle : MonoBehaviour {
 		 if (CurrentNum == 16) {
 		 	//クリア表示
 		 	Timer.setStartFlg(false);
-		 	//Text_countDown_text.text  = "complete!";
+		 	Text_complete.GetComponent<uTools.uTweenPosition> ().enabled = true;
+
+		 	//結果を一時保存
+		 	saveCurrentTime();
+
+		 	//結果画面へ飛ばす
+		 	Invoke("HideContents",  1.0f);
+		 	Invoke("LoadResult",  1.5f);
 		 }
 	}
 
@@ -136,8 +190,6 @@ public class ControlSingle : MonoBehaviour {
 
 
 
-
-
     //ゲーム開始時のカウントダウン
     void countDownNumber () {
 
@@ -148,10 +200,28 @@ public class ControlSingle : MonoBehaviour {
 	}
 
 
+	//今回のタイムを一時保存
+	void saveCurrentTime () {
+		PlayerPrefs.SetInt("CurrentMin", Timer.getCurrentMin());
+		PlayerPrefs.SetInt("CurrentSec", Timer.getCurrentSec());
+		PlayerPrefs.SetFloat("CurrentDec", Timer.getCurrentDec());
+	}
 
 
+	//コンテンツを隠す
+	void HideContents () {
+		Btn_start.SetActive(false);
+		Text_bestRecord.SetActive(false);
+		GameUi.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		Content.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		Content2.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+	}
 
 
+	// 結果画面へとぶ
+    void LoadResult () {
+        SceneManager.LoadScene("Result");
+    }
 
     //------------------------------------------------------
 }
