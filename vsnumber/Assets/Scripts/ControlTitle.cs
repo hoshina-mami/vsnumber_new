@@ -9,7 +9,7 @@ public class ControlTitle : MonoBehaviour {
 	private GameObject TitleText;
 	private GameObject Btn_vs;
 	private GameObject Btn_single;
-	private GameObject Btn_record;
+	//private GameObject Btn_record;
 	private GameObject Btn_setting;
 
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class ControlTitle : MonoBehaviour {
         TitleText       = GameObject.Find("TitleText");
         Btn_vs          = GameObject.Find("Btn_vs");
         Btn_single      = GameObject.Find("Btn_single");
-        Btn_record      = GameObject.Find("Btn_record");
+        //Btn_record      = GameObject.Find("Btn_record");
         Btn_setting     = GameObject.Find("Btn_setting");
 	
 	}
@@ -63,7 +63,7 @@ public class ControlTitle : MonoBehaviour {
 		TitleText.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		Btn_vs.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		Btn_single.GetComponent<uTools.uTweenAlpha> ().enabled = true;
-		Btn_record.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		//Btn_record.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		Btn_setting.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		
 	}

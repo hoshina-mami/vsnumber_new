@@ -46,11 +46,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BtnControl.cs" />
+     <Compile Include="Assets\Scripts\BtnControlVs1.cs" />
+     <Compile Include="Assets\Scripts\BtnControlVs2.cs" />
      <Compile Include="Assets\Scripts\BtnGenerator.cs" />
-     <Compile Include="Assets\Scripts\ControlMainVS.cs" />
+     <Compile Include="Assets\Scripts\BtnGeneratorVs1.cs" />
+     <Compile Include="Assets\Scripts\BtnGeneratorVs2.cs" />
      <Compile Include="Assets\Scripts\ControlResult.cs" />
      <Compile Include="Assets\Scripts\ControlSingle.cs" />
      <Compile Include="Assets\Scripts\ControlTitle.cs" />
+     <Compile Include="Assets\Scripts\ControlVs.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uDragObject.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uEnum.cs" />

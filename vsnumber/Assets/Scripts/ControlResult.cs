@@ -23,6 +23,9 @@ public class ControlResult : MonoBehaviour {
 	private string MinText;
 	private string SecText;
 	private string DecText;
+	private string BestMinText;
+	private string BestSecText;
+	private string BestDecText;
 
 	private string BestName;
 
@@ -102,6 +105,7 @@ public class ControlResult : MonoBehaviour {
     // 入力情報保存
     public void saveNewRecord () {
         PlayerPrefs.SetString("LastName", inputField.text);
+        PlayerPrefs.SetString("BestName", inputField.text);
 
         PlayerPrefs.SetInt("BestMin", CurrentMinCount);
 		PlayerPrefs.SetInt("BestSec", CurrentSecCount);
@@ -141,22 +145,22 @@ public class ControlResult : MonoBehaviour {
     void showBestRecord () {
 
     	if (BestMinCount < 10) {
-			MinText = string.Format ("0{0}", BestMinCount.ToString ());
+			BestMinText = string.Format ("0{0}", BestMinCount.ToString ());
 		} else {
-			MinText = string.Format ("{0}", BestMinCount.ToString ());
+			BestMinText = string.Format ("{0}", BestMinCount.ToString ());
 		}
 		if (BestSecCount < 10) {
-			SecText = string.Format ("0{0}", BestSecCount.ToString ());
+			BestSecText = string.Format ("0{0}", BestSecCount.ToString ());
 		} else {
-			SecText = string.Format ("{0}", BestSecCount.ToString ());
+			BestSecText = string.Format ("{0}", BestSecCount.ToString ());
 		}
 		if (BestDecCount >= 0 && BestDecCount < 9.9) {
-			DecText = string.Format ("0{0}", BestDecCount.ToString ("f0"));
+			BestDecText = string.Format ("0{0}", BestDecCount.ToString ("f0"));
 		} else if (BestDecCount < 99.9) {
-			DecText = string.Format ("{0}", BestDecCount.ToString ("f0"));
+			BestDecText = string.Format ("{0}", BestDecCount.ToString ("f0"));
 		}
 
-		Text_bestTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
+		Text_bestTime.GetComponent<Text> ().text = BestMinText +":"+ BestSecText +":"+ BestDecText;
 		Text_bestName.GetComponent<Text> ().text = "by " + BestName;
 
 		checkBestRecord();
