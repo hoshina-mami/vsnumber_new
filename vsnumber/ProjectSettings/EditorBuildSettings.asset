@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/InGameVs.unity
   - enabled: 1
     path: Assets/Result.unity
+  - enabled: 1
+    path: Assets/Option.unity

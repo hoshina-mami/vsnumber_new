@@ -40,6 +40,8 @@ public class ControlTitle : MonoBehaviour {
 			Invoke("LoadInGameSingle",  0.4f);
 		} else if (target == "InGameVs") {
 			Invoke("LoadInGameVs",  0.4f);
+		} else if (target == "Option") {
+			Invoke("LoadOption",  0.4f);
 		}
 		
 
@@ -53,6 +55,11 @@ public class ControlTitle : MonoBehaviour {
 	// VsMode選択画面へとぶ
     public void LoadInGameVs () {
     	SceneManager.LoadScene("InGameVs");
+    }
+
+    // Option画面へとぶ
+    public void LoadOption () {
+    	SceneManager.LoadScene("Option");
     }
 
 

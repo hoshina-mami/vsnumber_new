@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\BtnGenerator.cs" />
      <Compile Include="Assets\Scripts\BtnGeneratorVs1.cs" />
      <Compile Include="Assets\Scripts\BtnGeneratorVs2.cs" />
+     <Compile Include="Assets\Scripts\ControlOption.cs" />
      <Compile Include="Assets\Scripts\ControlResult.cs" />
      <Compile Include="Assets\Scripts\ControlSingle.cs" />
      <Compile Include="Assets\Scripts\ControlTitle.cs" />
