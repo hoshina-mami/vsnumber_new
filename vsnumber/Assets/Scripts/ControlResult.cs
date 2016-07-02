@@ -178,7 +178,6 @@ public class ControlResult : MonoBehaviour {
 
     //最高記録と比較
     void checkBestRecord () {
-    	Debug.Log(PlayerPrefs.GetInt("isFirstPlay"));
     	if (PlayerPrefs.GetInt("isFirstPlay") != 0) {
     		//分の比
 	    	if (BestMinCount > CurrentMinCount) {
@@ -203,7 +202,6 @@ public class ControlResult : MonoBehaviour {
 
     //NewRecorポップアップを表示
     void showInputPopup () {
-    	Debug.Log("pop");
     	if (PlayerPrefs.GetString("LastName") != "") {
     		inputField.text = PlayerPrefs.GetString("LastName");
     	}
