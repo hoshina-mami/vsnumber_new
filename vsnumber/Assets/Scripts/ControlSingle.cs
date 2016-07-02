@@ -159,6 +159,8 @@ public class ControlSingle : MonoBehaviour {
 		 	//結果を一時保存
 		 	saveCurrentTime();
 
+		 	PlayerPrefs.SetInt("playMode", 1);
+
 		 	//結果画面へ飛ばす
 		 	Invoke("HideContents",  1.0f);
 		 	Invoke("LoadResult",  1.5f);

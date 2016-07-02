@@ -18,6 +18,10 @@ public class ControlVs : MonoBehaviour {
 	private GameObject Box_Timer;
 	private GameObject Text_countDown;
 	private GameObject Text_complete;
+	private GameObject finish1;
+	private GameObject finish2;
+	private GameObject Text_result1;
+	private GameObject Text_result2;
 	private Text Text_countDown_text;
 	private Timer Timer;
 	private BtnGeneratorVs1 BtnGeneratorVs1;
@@ -49,6 +53,10 @@ public class ControlVs : MonoBehaviour {
         Box_Timer       = GameObject.Find("Box_Timer");
         Text_countDown  = GameObject.Find("Text_countDown");
         Text_complete   = GameObject.Find("Text_complete");
+        finish1         = GameObject.Find("finish1");
+        finish2         = GameObject.Find("finish2");
+        Text_result1    = GameObject.Find("Text_result1");
+        Text_result2    = GameObject.Find("Text_result2");
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
         Timer           = Box_Timer.GetComponent<Timer>();
         BtnGeneratorVs1 = GameObject.Find("BtnGenerator").GetComponent<BtnGeneratorVs1>();
@@ -59,6 +67,8 @@ public class ControlVs : MonoBehaviour {
         CountDownNum = 3;
 
         Box_Timer.SetActive(false);
+        finish1.SetActive(false);
+        finish2.SetActive(false);
 	
 	}
 	
@@ -126,14 +136,18 @@ public class ControlVs : MonoBehaviour {
 		 if (CurrentNum1 == 16) {
 		 	//クリア表示
 		 	Timer.setStartFlg(false);
-		 	Text_complete.GetComponent<uTools.uTweenPosition> ().enabled = true;
+		 	finish1.SetActive(true);
+        	finish2.SetActive(true);
+        	Text_result1.GetComponent<Text> ().text = "WIN!";
 
 		 	//結果を一時保存
 		 	saveCurrentTime();
 
+		 	PlayerPrefs.SetInt("playMode", 2);
+
 		 	//結果画面へ飛ばす
-		 	Invoke("HideContents",  1.0f);
-		 	Invoke("LoadResult",  1.5f);
+		 	Invoke("HideContents",  2.0f);
+		 	Invoke("LoadResult",  2.5f);
 		 }
 	}
 
@@ -157,7 +171,9 @@ public class ControlVs : MonoBehaviour {
 		 if (CurrentNum2 == 16) {
 		 	//クリア表示
 		 	Timer.setStartFlg(false);
-		 	Text_complete.GetComponent<uTools.uTweenPosition> ().enabled = true;
+		 	finish1.SetActive(true);
+        	finish2.SetActive(true);
+        	Text_result2.GetComponent<Text> ().text = "WIN!";
 
 		 	//結果を一時保存
 		 	saveCurrentTime();

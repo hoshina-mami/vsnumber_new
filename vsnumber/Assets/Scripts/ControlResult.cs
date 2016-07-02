@@ -93,12 +93,17 @@ public class ControlResult : MonoBehaviour {
 
 		HideContents();
 
-		Invoke("LoadSingle",  0.4f);
+		Invoke("LoadGame",  0.4f);
 
 	}
-	// 再度singleモードを表示
-    public void LoadSingle () {
-        SceneManager.LoadScene("InGameSingle");
+	// 再度ゲームを表示
+    public void LoadGame () {
+    	if (PlayerPrefs.GetInt("playMode") == 1) {
+			SceneManager.LoadScene("InGameSingle");
+		} else {
+			SceneManager.LoadScene("InGameVs");
+		}
+        
     }
 
 
@@ -115,6 +120,10 @@ public class ControlResult : MonoBehaviour {
 		Text_bestTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
 		Text_bestName.GetComponent<Text> ().text = "by " + inputField.text;
 		Popup.SetActive(false);
+
+		if (PlayerPrefs.GetInt("isFirstPlay") == 0) {
+			PlayerPrefs.SetInt("isFirstPlay", 1);
+		}
     }
 
 
@@ -169,8 +178,9 @@ public class ControlResult : MonoBehaviour {
 
     //最高記録と比較
     void checkBestRecord () {
-    	if (MinText!="00" &&  SecText!="00" && DecText!="00") {
-    		//分の比較
+    	Debug.Log(PlayerPrefs.GetInt("isFirstPlay"));
+    	if (PlayerPrefs.GetInt("isFirstPlay") != 0) {
+    		//分の比
 	    	if (BestMinCount > CurrentMinCount) {
 	    		//小さければ必ずOK
 	    		showInputPopup();
@@ -193,6 +203,7 @@ public class ControlResult : MonoBehaviour {
 
     //NewRecorポップアップを表示
     void showInputPopup () {
+    	Debug.Log("pop");
     	if (PlayerPrefs.GetString("LastName") != "") {
     		inputField.text = PlayerPrefs.GetString("LastName");
     	}
