@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 051bdf1c6f5704e6cb736eb7ef51239b
-timeCreated: 1462604055
+timeCreated: 1467513002
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,8 @@ TextureImporter:
     21300008: btn_twitter
     21300010: btn_setting
     21300012: btn_return
+    21300014: btn_select_out
+    21300016: btn_select
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -60,7 +62,7 @@ TextureImporter:
     - name: btn_small
       rect:
         serializedVersion: 2
-        x: 406
+        x: 610
         y: 64
         width: 67
         height: 67
@@ -128,7 +130,7 @@ TextureImporter:
     - name: btn_twitter
       rect:
         serializedVersion: 2
-        x: 130
+        x: 260
         y: 64
         width: 90
         height: 81
@@ -157,7 +159,7 @@ TextureImporter:
     - name: btn_setting
       rect:
         serializedVersion: 2
-        x: 222
+        x: 352
         y: 64
         width: 90
         height: 81
@@ -187,7 +189,7 @@ TextureImporter:
     - name: btn_return
       rect:
         serializedVersion: 2
-        x: 314
+        x: 444
         y: 64
         width: 90
         height: 81
@@ -213,6 +215,50 @@ TextureImporter:
         - {x: 34, y: -26.5}
         - {x: 35, y: -20.5}
         - {x: 35, y: 11.5}
+    - name: btn_select_out
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 64
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: 64}
+        - {x: -64, y: 38}
+        - {x: -64, y: -47}
+        - {x: -35, y: -64}
+        - {x: 49, y: -64}
+        - {x: 64, y: -43}
+        - {x: 64, y: 30}
+        - {x: 46, y: 64}
+      - - {x: -26, y: -43}
+        - {x: -38, y: 33}
+        - {x: 26, y: 43}
+        - {x: 38, y: -33}
+    - name: btn_select
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 64
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 36}
+        - {x: -35, y: 25}
+        - {x: -36, y: 20}
+        - {x: -36, y: -20}
+        - {x: -25, y: -35}
+        - {x: -22, y: -36}
+        - {x: 23, y: -36}
+        - {x: 36, y: -25}
+        - {x: 36, y: 16}
+        - {x: 29, y: 36}
     outline: []
   spritePackingTag: 
   userData: 
