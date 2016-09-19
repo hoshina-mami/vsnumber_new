@@ -11,7 +11,11 @@ public class ControlVs : MonoBehaviour {
 	public Sprite background4;
 	public Sprite background5;
 
+	public ParticleSystem tapEffect;//タップエフェクト
+    public Camera _camera;// カメラの座標
+
 	//private
+	private Vector3 pos;
 	private GameObject GameUi;
 	private GameObject Btn_return;
 	private GameObject Btn_start;
@@ -29,6 +33,10 @@ public class ControlVs : MonoBehaviour {
 	private GameObject Text_result1;
 	private GameObject Text_result2;
 	private GameObject Background;
+	private GameObject Win1;
+	private GameObject Win2;
+	private GameObject Text_Win1;
+	private GameObject Text_Win2;
 	private Text Text_countDown_text;
 	private Timer Timer;
 	private BtnGeneratorVs1 BtnGeneratorVs1;
@@ -38,11 +46,15 @@ public class ControlVs : MonoBehaviour {
 	private int CurrentNum2;//現在の数を保存する変数
 	private int CountDownNum;//ゲーム開始時のカウントダウン
 
+	private int WinPlayer;
+
 	private string MinText;
 	private string SecText;
 	private string DecText;
 
 	private string BestName;
+
+	private bool isPlayed;
 
 	// Use this for initialization
 	void Start () {
@@ -65,6 +77,10 @@ public class ControlVs : MonoBehaviour {
         Text_result1    = GameObject.Find("Text_result1");
         Text_result2    = GameObject.Find("Text_result2");
         Background      = GameObject.Find("Background");
+        Win1            = GameObject.Find("Win1");
+        Win2            = GameObject.Find("Win2");
+        Text_Win1       = GameObject.Find("Text_Win1");
+        Text_Win2       = GameObject.Find("Text_Win2");
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
         Timer           = Box_Timer.GetComponent<Timer>();
         BtnGeneratorVs1 = GameObject.Find("BtnGenerator").GetComponent<BtnGeneratorVs1>();
@@ -79,6 +95,13 @@ public class ControlVs : MonoBehaviour {
         Box_Timer.SetActive(false);
         finish1.SetActive(false);
         finish2.SetActive(false);
+
+        Text_Win1.GetComponent<Text> ().text = PlayerPrefs.GetInt("Win1").ToString();
+        Text_Win2.GetComponent<Text> ().text = PlayerPrefs.GetInt("Win2").ToString();
+        Win1.SetActive(false);
+        Win2.SetActive(false);
+
+        isPlayed = false;
 	
 	}
 	
@@ -167,6 +190,11 @@ public class ControlVs : MonoBehaviour {
 	public void addCurrentNum1() {
 		 CurrentNum1++;
 
+		 // マウスのワールド座標までパーティクルを移動し、パーティクルエフェクトを1つ生成する
+        pos = _camera.ScreenToWorldPoint(Input.mousePosition + _camera.transform.forward * 10);
+        tapEffect.transform.position = pos;
+        tapEffect.Emit(1);
+
 		 if (CurrentNum1 == 16) {
 		 	//クリア表示
 		 	Timer.setStartFlg(false);
@@ -179,12 +207,29 @@ public class ControlVs : MonoBehaviour {
 
 		 	PlayerPrefs.SetInt("playMode", 2);
 
-		 	//結果画面へ飛ばす
-		 	Invoke("HideContents",  2.0f);
-		 	Invoke("LoadResult",  2.5f);
+		 	WinPlayer = 1;
+		 	Win1.SetActive(true);
+		 	Win2.SetActive(true);
+		 	Invoke("UpdateWinCount",  1f);
+
+		 	isPlayed = true;
+	
 		 }
 	}
 
+
+	// 勝利数の更新
+    void UpdateWinCount () {
+    	if (WinPlayer == 1) {
+    		PlayerPrefs.GetInt("Win1");
+    		PlayerPrefs.SetInt("Win1", PlayerPrefs.GetInt("Win1") + 1);
+    		Text_Win1.GetComponent<Text> ().text = PlayerPrefs.GetInt("Win1").ToString();
+    	} else {
+    		PlayerPrefs.GetInt("Win2");
+    		PlayerPrefs.SetInt("Win2", PlayerPrefs.GetInt("Win2") + 1);
+    		Text_Win2.GetComponent<Text> ().text = PlayerPrefs.GetInt("Win2").ToString();
+    	}
+    }
 
 
 	/*
@@ -202,6 +247,11 @@ public class ControlVs : MonoBehaviour {
 	public void addCurrentNum2() {
 		 CurrentNum2++;
 
+		 // マウスのワールド座標までパーティクルを移動し、パーティクルエフェクトを1つ生成する
+        pos = _camera.ScreenToWorldPoint(Input.mousePosition + _camera.transform.forward * 10);
+        tapEffect.transform.position = pos;
+        tapEffect.Emit(1);
+
 		 if (CurrentNum2 == 16) {
 		 	//クリア表示
 		 	Timer.setStartFlg(false);
@@ -212,11 +262,20 @@ public class ControlVs : MonoBehaviour {
 		 	//結果を一時保存
 		 	saveCurrentTime();
 
-		 	//結果画面へ飛ばす
-		 	Invoke("HideContents",  1.0f);
-		 	Invoke("LoadResult",  1.5f);
+		 	WinPlayer = 2;
+		 	Win1.SetActive(true);
+		 	Win2.SetActive(true);
+		 	Invoke("UpdateWinCount",  1f);
+
+		 	isPlayed = true;
 		 }
 	}
+
+	public void endGame () {
+    	//結果画面へ飛ばす
+	 	Invoke("HideContents",  1.5f);
+	 	Invoke("LoadResult",  2.0f);
+    }
 
 
 	//ゲーム中のボタンを押した時の処理
@@ -267,8 +326,12 @@ public class ControlVs : MonoBehaviour {
 	void HideContents () {
 		Btn_start.SetActive(false);
 		GameUi.GetComponent<uTools.uTweenAlpha> ().enabled = true;
-		Content.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		Content4.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		Content2.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		if (!isPlayed) {
+			Content.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+			Content3.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		}
 	}
 
 

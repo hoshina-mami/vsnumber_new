@@ -11,7 +11,11 @@ public class ControlSingle : MonoBehaviour {
 	public Sprite background4;
 	public Sprite background5;
 
+	public ParticleSystem tapEffect;//タップエフェクト
+    public Camera _camera;// カメラの座標
+
 	//private
+	private Vector3 pos;
 	private GameObject GameUi;
 	private GameObject Btn_return;
 	private GameObject Btn_start;
@@ -190,6 +194,11 @@ public class ControlSingle : MonoBehaviour {
 	 */
 	public void addCurrentNum() {
 		 CurrentNum++;
+
+		 // マウスのワールド座標までパーティクルを移動し、パーティクルエフェクトを1つ生成する
+        pos = _camera.ScreenToWorldPoint(Input.mousePosition + _camera.transform.forward * 10);
+        tapEffect.transform.position = pos;
+        tapEffect.Emit(1);
 
 		 if (CurrentNum == 16) {
 		 	//クリア表示

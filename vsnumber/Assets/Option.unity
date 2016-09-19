@@ -754,8 +754,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 252, y: -76}
-  m_SizeDelta: {x: -41, y: -12}
+  m_AnchoredPosition: {x: 322, y: -76}
+  m_SizeDelta: {x: 144, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &524089872
 MonoBehaviour:
@@ -1218,8 +1218,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadGame
+      - m_Target: {fileID: 154583873}
+        m_MethodName: deleteRecord
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

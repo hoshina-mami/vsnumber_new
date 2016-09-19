@@ -32,6 +32,9 @@ public class ControlTitle : MonoBehaviour {
         Btn_setting     = GameObject.Find("Btn_setting");
         Background      = GameObject.Find("Background");
 
+        PlayerPrefs.SetInt("Win1", 0);
+        PlayerPrefs.SetInt("Win2", 0);
+
         //背景を切り替える
         setBackground();
 	

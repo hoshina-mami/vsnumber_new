@@ -24,9 +24,10 @@ public class BtnGeneratorVs2 : MonoBehaviour {
 	void Start () {
 		Application.targetFrameRate = 60;
 		
-		newScale.x = 1.4f;
-		newScale.y = 1.4f;
-		newScale.z = 1.4f;
+		newScale.x = 1.6f;
+		newScale.y = 1.6f;
+		newScale.z = 0f;
+		newPosition.z = 0f;
 		newRotation.z = 180;
 
         for (int i = 0; i < deck.Length; i++) {
@@ -46,12 +47,14 @@ public class BtnGeneratorVs2 : MonoBehaviour {
 			cloneBox = (GameObject)Instantiate(BtnBox);
 			cloneBox.transform.SetParent(Content3.transform, true );
 			cloneBox.transform.localScale = newScale;
+			cloneBox.transform.localPosition = newPosition;
 
 			for (int j = 0; j < 5; j++) {
 
 				cloneBtn = (GameObject)Instantiate(Btn_inGame);
 				cloneBtn.transform.SetParent(cloneBox.transform, true );
 				cloneBtn.transform.localScale = newScale;
+				cloneBtn.transform.localPosition = newPosition;
 				cloneBtn.transform.rotation = newRotation;
 
 				//数字を設定
@@ -74,12 +77,14 @@ public class BtnGeneratorVs2 : MonoBehaviour {
 			cloneBox = (GameObject)Instantiate(BtnBox);
 			cloneBox.transform.SetParent(Content4.transform, true );
 			cloneBox.transform.localScale = newScale;
+			cloneBox.transform.localPosition = newPosition;
 
 			for (int l = 0; l < 5; l++) {
 
 				cloneBtn = (GameObject)Instantiate(Btn_inGame);
 				cloneBtn.transform.SetParent(cloneBox.transform, true );
 				cloneBtn.transform.localScale = newScale;
+				cloneBtn.transform.localPosition = newPosition;
 
 
 				//ボタンを非アクティブにしておく
