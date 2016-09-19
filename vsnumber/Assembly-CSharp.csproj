@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\ControlSingle.cs" />
      <Compile Include="Assets\Scripts\ControlTitle.cs" />
      <Compile Include="Assets\Scripts\ControlVs.cs" />
+     <Compile Include="Assets\Scripts\TapEffect.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uDragObject.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uEnum.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\uGUI\Scripts\Tween\uTweenText.cs" />
      <Compile Include="Assets\uGUI\Scripts\Tween\uTweenValue.cs" />
      <Compile Include="Assets\uGUI\Scripts\Tween\uTweener.cs" />
+     <None Include="Assets\Unlit-Alpha Premultiplied.shader" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>

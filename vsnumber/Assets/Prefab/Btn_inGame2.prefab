@@ -127,7 +127,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   from: {r: 1, g: 1, b: 1, a: 1}
-  to: {r: 0.4705882, g: 0.48442903, b: 0.48442903, a: 1}
+  to: {r: 0.4705882, g: 0.48442903, b: 0.48442903, a: 0}
   includeChilds: 1
 --- !u!114 &11438382
 MonoBehaviour:
@@ -289,6 +289,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: tapNumBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: to.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

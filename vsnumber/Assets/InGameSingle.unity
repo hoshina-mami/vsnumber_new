@@ -555,6 +555,7 @@ GameObject:
   - 114: {fileID: 607483535}
   - 114: {fileID: 607483534}
   - 114: {fileID: 607483533}
+  - 114: {fileID: 607483537}
   m_Layer: 5
   m_Name: Text_complete
   m_TagString: Untagged
@@ -576,7 +577,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 195, y: 59}
+  m_AnchoredPosition: {x: 245, y: -85}
   m_SizeDelta: {x: 360.9248, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607483533
@@ -609,15 +610,15 @@ MonoBehaviour:
   easeType: 4
   loopStyle: 0
   delay: 0
-  duration: 0.2
+  duration: 0.1
   ignoreTimeScale: 1
   onFinished:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  from: {x: 200, y: 58, z: 0}
-  to: {x: 10, y: 58, z: 0}
+  from: {x: 200, y: -85, z: 0}
+  to: {x: 12, y: -85, z: 0}
 --- !u!114 &607483534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,13 +691,52 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Complete\uFF01"
+  m_Text: Complete
 --- !u!222 &607483536
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607483531}
+--- !u!114 &607483537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607483531}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207c3eaacd40617469992a3f0e10c623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  easeType: 2
+  loopStyle: 0
+  delay: 0.3
+  duration: 0.7
+  ignoreTimeScale: 1
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  from: {x: 0.3, y: 0.3, z: 0.3}
+  to: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &623667098
 GameObject:
   m_ObjectHideFlags: 0

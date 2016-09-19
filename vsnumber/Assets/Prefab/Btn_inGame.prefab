@@ -130,7 +130,7 @@ MonoBehaviour:
   easeType: 22
   loopStyle: 0
   delay: 0
-  duration: 0.1
+  duration: 0.2
   ignoreTimeScale: 1
   onFinished:
     m_PersistentCalls:
@@ -138,7 +138,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   from: {r: 1, g: 1, b: 1, a: 1}
-  to: {r: 0.4705882, g: 0.48442903, b: 0.48442903, a: 1}
+  to: {r: 0.947507, g: 0.9632353, b: 0.8003352, a: 0}
   includeChilds: 1
 --- !u!114 &11478744
 MonoBehaviour:
@@ -289,6 +289,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: tapNumBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: to.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: to.r
+      value: 0.947507
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: to.g
+      value: 0.9632353
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: to.b
+      value: 0.8003352
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: duration
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

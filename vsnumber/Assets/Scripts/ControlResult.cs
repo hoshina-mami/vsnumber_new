@@ -13,7 +13,10 @@ public class ControlResult : MonoBehaviour {
 
 	//private
 	private GameObject GameUi;
+	private GameObject Btn_retry;
+	private GameObject Text_record;
 	private GameObject Text_currentTime;
+	private GameObject Text_bestRecord;
 	private GameObject Text_bestTime;
 	private GameObject Text_bestName;
 	private GameObject Text_newTime;
@@ -45,7 +48,10 @@ public class ControlResult : MonoBehaviour {
 		Application.targetFrameRate = 60;
 
         GameUi           = GameObject.Find("GameUi");
+        Btn_retry        = GameObject.Find("Btn_retry");
+        Text_record      = GameObject.Find("Text_record");
         Text_currentTime = GameObject.Find("Text_currentTime");
+        Text_bestRecord  = GameObject.Find("Text_bestRecord");
         Text_bestTime    = GameObject.Find("Text_bestTime");
         Text_bestName    = GameObject.Find("Text_bestName");
         Text_newTime     = GameObject.Find("Text_newTime");
@@ -69,10 +75,12 @@ public class ControlResult : MonoBehaviour {
 		}
 
 		//今回の記録を表示
-		showCurrentRecord();
+		Invoke("showCurrentRecord",  0.2f);
+		//showCurrentRecord();
 
 		//最高記録と比較・表示
-		showBestRecord();
+		Invoke("showBestRecord",  1.2f);
+		//showBestRecord();
 	
 	}
 	
@@ -135,6 +143,7 @@ public class ControlResult : MonoBehaviour {
 		Text_bestTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
 		Text_bestName.GetComponent<Text> ().text = "by " + inputField.text;
 		Popup.SetActive(false);
+		showContinueBtn();
 
 		if (PlayerPrefs.GetInt("isFirstPlay") == 0) {
 			PlayerPrefs.SetInt("isFirstPlay", 1);
@@ -186,6 +195,7 @@ public class ControlResult : MonoBehaviour {
 		}
 
 		Text_currentTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
+		Text_record.GetComponent<uTools.uTweenPosition> ().enabled = true;
 
     }
 
@@ -208,11 +218,11 @@ public class ControlResult : MonoBehaviour {
 			BestDecText = string.Format ("{0}", BestDecCount.ToString ("f0"));
 		}
 
-		Text_bestTime.GetComponent<Text> ().text = BestMinText +":"+ BestSecText +":"+ BestDecText;
-		Text_bestName.GetComponent<Text> ().text = "by " + BestName;
-
 		checkBestRecord();
 
+		Text_bestTime.GetComponent<Text> ().text = BestMinText +":"+ BestSecText +":"+ BestDecText;
+		Text_bestName.GetComponent<Text> ().text = "by " + BestName;
+		Text_bestRecord.GetComponent<uTools.uTweenPosition> ().enabled = true;
     }
 
     //最高記録と比較
@@ -230,8 +240,14 @@ public class ControlResult : MonoBehaviour {
 				} else if (BestSecCount == CurrentSecCount) {
 					if (BestDecCount > CurrentDecCount){
 						showInputPopup();
+					} else {
+						showContinueBtn();
 					}
+				} else {
+					showContinueBtn();
 				}
+	    	} else {
+	    		showContinueBtn();
 	    	}
     	} else {
     		//記録がなければ登録
@@ -246,6 +262,12 @@ public class ControlResult : MonoBehaviour {
     	}
     	Text_newTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
     	Popup.GetComponent<uTools.uTweenPosition> ().enabled = true;
+    }
+
+
+    //continueボタンを表示
+    void showContinueBtn () {
+    	Btn_retry.GetComponent<uTools.uTweenPosition> ().enabled = true;
     }
 
 

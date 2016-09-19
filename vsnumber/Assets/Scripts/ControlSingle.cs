@@ -39,6 +39,8 @@ public class ControlSingle : MonoBehaviour {
 
 	private string BestName;
 
+	private bool isPlayed;
+
 	// Use this for initialization
 	void Start () {
 		Application.targetFrameRate = 60;
@@ -76,6 +78,8 @@ public class ControlSingle : MonoBehaviour {
 		}
 
         showBestRecord();
+
+        isPlayed = false;
 	
 	}
 	
@@ -198,6 +202,7 @@ public class ControlSingle : MonoBehaviour {
 		 	PlayerPrefs.SetInt("playMode", 1);
 
 		 	//結果画面へ飛ばす
+		 	isPlayed = true;
 		 	Invoke("HideContents",  1.0f);
 		 	Invoke("LoadResult",  1.5f);
 		 }
@@ -251,8 +256,10 @@ public class ControlSingle : MonoBehaviour {
 		Btn_start.SetActive(false);
 		Text_bestRecord.SetActive(false);
 		GameUi.GetComponent<uTools.uTweenAlpha> ().enabled = true;
-		Content.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		Content2.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		if (!isPlayed) {
+			Content.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		}
 	}
 
 
