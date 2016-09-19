@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 051bdf1c6f5704e6cb736eb7ef51239b
-timeCreated: 1467513002
+timeCreated: 1474218183
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,15 @@ TextureImporter:
     21300012: btn_return
     21300014: btn_select_out
     21300016: btn_select
+    21300018: background_5
+    21300020: icon_king
+    21300022: icon_star
+    21300024: icon_timer
+    21300026: btn_return2
+    21300028: background_4
+    21300030: background_3
+    21300032: white
+    21300034: icon_sound
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,26 +71,198 @@ TextureImporter:
     - name: btn_small
       rect:
         serializedVersion: 2
-        x: 610
-        y: 64
-        width: 67
-        height: 67
+        x: 0
+        y: 1646
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -33.5, y: 33.5}
-        - {x: -33.5, y: -33.5}
-        - {x: 33.5, y: -33.5}
-        - {x: 33.5, y: 33.5}
-      - - {x: -27.5, y: 27.5}
-        - {x: 27.5, y: 27.5}
-        - {x: 27.5, y: -27.5}
-        - {x: -27.5, y: -27.5}
+      - - {x: -25, y: 25}
+        - {x: -25, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: 25}
+      - - {x: -19, y: 19}
+        - {x: 19, y: 19}
+        - {x: 19, y: -19}
+        - {x: -19, y: -19}
     - name: background_1
       rect:
         serializedVersion: 2
+        x: 244
+        y: 258
+        width: 47
+        height: 1152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 576}
+        - {x: -23.5, y: -576}
+        - {x: 23.5, y: -576}
+        - {x: 23.5, y: 576}
+    - name: background_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 258
+        width: 47
+        height: 1152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 576}
+        - {x: -23.5, y: -576}
+        - {x: 23.5, y: -576}
+        - {x: 23.5, y: 576}
+    - name: btn_big
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 0
+        width: 202
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -101, y: 23}
+        - {x: -101, y: -23}
+        - {x: 101, y: -23}
+        - {x: 101, y: 23}
+      - - {x: -95, y: 17}
+        - {x: 95, y: 17}
+        - {x: 95, y: -17}
+        - {x: -95, y: -17}
+    - name: btn_twitter
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 48
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: 30}
+        - {x: -33.5, y: -30}
+        - {x: 33.5, y: -30}
+        - {x: 33.5, y: 30}
+      - - {x: -27.5, y: 24}
+        - {x: 27.5, y: 24}
+        - {x: 27.5, y: -24}
+        - {x: -27.5, y: -24}
+      - - {x: -20.5, y: 12}
+        - {x: -20.5, y: -18}
+        - {x: -18.5, y: -19}
+        - {x: 5.5, y: -19}
+        - {x: 21.5, y: -13}
+        - {x: 21.5, y: 18}
+        - {x: -12.5, y: 18}
+        - {x: -17.5, y: 17}
+    - name: btn_setting
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 146
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: 30}
+        - {x: -33.5, y: -30}
+        - {x: 33.5, y: -30}
+        - {x: 33.5, y: 30}
+      - - {x: -27.5, y: 24}
+        - {x: 27.5, y: 24}
+        - {x: 27.5, y: -24}
+        - {x: -27.5, y: -24}
+      - - {x: -23.5, y: 24}
+        - {x: -23.5, y: -17}
+        - {x: -11.5, y: -24}
+        - {x: 18.5, y: -24}
+        - {x: 23.5, y: -8}
+        - {x: 23.5, y: 24}
+    - name: btn_return
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 146
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: 30}
+        - {x: -33.5, y: -30}
+        - {x: 33.5, y: -30}
+        - {x: 33.5, y: 30}
+      - - {x: -24.5, y: 3}
+        - {x: -21.5, y: 0}
+        - {x: -24.5, y: -8}
+        - {x: -24.5, y: -21}
+        - {x: -21.5, y: -24}
+        - {x: 12.5, y: -24}
+        - {x: 17.5, y: -22}
+        - {x: 24.5, y: -15}
+        - {x: 27.5, y: -10}
+        - {x: 27.5, y: 5}
+        - {x: 26.5, y: 12}
+        - {x: 13.5, y: 21}
+        - {x: 27.5, y: 24}
+        - {x: 27.5, y: -24}
+        - {x: -27.5, y: -24}
+    - name: btn_select_out
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 48
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 48}
+        - {x: -48, y: 39}
+        - {x: -48, y: -31}
+        - {x: -41, y: -48}
+        - {x: 27, y: -48}
+        - {x: 48, y: -27}
+        - {x: 48, y: 28}
+        - {x: 25, y: 48}
+      - - {x: -36, y: -9}
+        - {x: 15, y: 33}
+        - {x: 36, y: 9}
+        - {x: 11, y: -33}
+    - name: btn_select
+      rect:
+        serializedVersion: 2
         x: 0
+        y: 1538
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 27}
+        - {x: -27, y: -24}
+        - {x: -21, y: -27}
+        - {x: 19, y: -27}
+        - {x: 27, y: -16}
+        - {x: 27, y: 17}
+        - {x: 18, y: 27}
+    - name: background_5
+      rect:
+        serializedVersion: 2
+        x: 130
         y: 0
         width: 63
         height: 1536
@@ -93,7 +274,85 @@ TextureImporter:
         - {x: -31.5, y: -768}
         - {x: 31.5, y: -768}
         - {x: 31.5, y: 768}
-    - name: background_2
+    - name: icon_king
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 0
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32.5, y: 23}
+        - {x: -32.5, y: -5}
+        - {x: -21.5, y: -23}
+        - {x: 24.5, y: -23}
+        - {x: 32.5, y: -5}
+        - {x: 32.5, y: 23}
+    - name: icon_star
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 62
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.5, y: 30}
+        - {x: -17.5, y: 30}
+        - {x: -32.5, y: 19}
+        - {x: -32.5, y: -28}
+        - {x: -29.5, y: -30}
+        - {x: 31.5, y: -30}
+        - {x: 32.5, y: -27}
+        - {x: 32.5, y: 17}
+    - name: icon_timer
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 124
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6.5, y: 3}
+        - {x: -8.5, y: 18}
+        - {x: -2.5, y: 13}
+        - {x: 3.5, y: 13}
+        - {x: 5.5, y: 15}
+        - {x: 7.5, y: 30}
+        - {x: -19.5, y: 30}
+        - {x: -30.5, y: 19}
+        - {x: -30.5, y: -20}
+        - {x: -20.5, y: -30}
+        - {x: 20.5, y: -30}
+        - {x: 31.5, y: -27}
+        - {x: 31.5, y: 19}
+        - {x: 18.5, y: 25}
+    - name: btn_return2
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 186
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 24}
+        - {x: -23.5, y: -23}
+        - {x: 22.5, y: -23}
+        - {x: 26.5, y: -14}
+        - {x: 26.5, y: 20}
+        - {x: 23.5, y: 24}
+    - name: background_4
       rect:
         serializedVersion: 2
         x: 65
@@ -108,157 +367,62 @@ TextureImporter:
         - {x: -31.5, y: -768}
         - {x: 31.5, y: -768}
         - {x: 31.5, y: 768}
-    - name: btn_big
+    - name: background_3
       rect:
         serializedVersion: 2
-        x: 130
+        x: 0
         y: 0
-        width: 270
-        height: 62
+        width: 63
+        height: 1536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -135, y: 31}
-        - {x: -135, y: -31}
-        - {x: 135, y: -31}
-        - {x: 135, y: 31}
-      - - {x: -129, y: 25}
-        - {x: 129, y: 25}
-        - {x: 129, y: -25}
-        - {x: -129, y: -25}
-    - name: btn_twitter
+      - - {x: -31.5, y: 768}
+        - {x: -31.5, y: -768}
+        - {x: 31.5, y: -768}
+        - {x: 31.5, y: 768}
+    - name: white
       rect:
         serializedVersion: 2
-        x: 260
-        y: 64
-        width: 90
-        height: 81
+        x: 0
+        y: 1594
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -42, y: 40.5}
-        - {x: -45, y: 37.5}
-        - {x: -45, y: -37.5}
-        - {x: -42, y: -40.5}
-        - {x: 42, y: -40.5}
-        - {x: 45, y: -37.5}
-        - {x: 45, y: 37.5}
-        - {x: 42, y: 40.5}
-      - - {x: -39, y: -31.5}
-        - {x: -36, y: 34.5}
-        - {x: 39, y: 31.5}
-        - {x: 36, y: -34.5}
-      - - {x: -27, y: 22.5}
-        - {x: -27, y: -21.5}
-        - {x: -22, y: -24.5}
-        - {x: 7, y: -24.5}
-        - {x: 28, y: -3.5}
-        - {x: 28, y: 22.5}
-    - name: btn_setting
+      - - {x: -25, y: 25}
+        - {x: -25, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: 25}
+    - name: icon_sound
       rect:
         serializedVersion: 2
-        x: 352
-        y: 64
-        width: 90
-        height: 81
+        x: 195
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -45, y: 40.5}
-        - {x: -45, y: -40.5}
-        - {x: 45, y: -40.5}
-        - {x: 45, y: 40.5}
-      - - {x: -39, y: -31.5}
-        - {x: -36, y: 34.5}
-        - {x: 38, y: 31.5}
-        - {x: 36, y: -34.5}
-      - - {x: 13, y: 31.5}
-        - {x: -16, y: 31.5}
-        - {x: -29, y: 20.5}
-        - {x: -31, y: 7.5}
-        - {x: -31, y: -10.5}
-        - {x: -22, y: -30.5}
-        - {x: -16, y: -31.5}
-        - {x: 14, y: -31.5}
-        - {x: 31, y: -24.5}
-        - {x: 31, y: 19.5}
-        - {x: 21, y: 30.5}
-    - name: btn_return
-      rect:
-        serializedVersion: 2
-        x: 444
-        y: 64
-        width: 90
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -43, y: 40.5}
-        - {x: -45, y: 38.5}
-        - {x: -45, y: -40.5}
-        - {x: 45, y: -40.5}
-        - {x: 45, y: 40.5}
-      - - {x: -39, y: -31.5}
-        - {x: -36, y: 34.5}
-        - {x: 39, y: 32.5}
-        - {x: 37, y: -34.5}
-      - - {x: 25, y: 21.5}
-        - {x: -2, y: 33.5}
-        - {x: -5, y: 33.5}
-        - {x: -31, y: 19.5}
-        - {x: -31, y: -30.5}
-        - {x: 33, y: -30.5}
-        - {x: 34, y: -26.5}
-        - {x: 35, y: -20.5}
-        - {x: 35, y: 11.5}
-    - name: btn_select_out
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 64
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -39, y: 64}
-        - {x: -64, y: 38}
-        - {x: -64, y: -47}
-        - {x: -35, y: -64}
-        - {x: 49, y: -64}
-        - {x: 64, y: -43}
-        - {x: 64, y: 30}
-        - {x: 46, y: 64}
-      - - {x: -26, y: -43}
-        - {x: -38, y: 33}
-        - {x: 26, y: 43}
-        - {x: 38, y: -33}
-    - name: btn_select
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 64
-        width: 72
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -20, y: 36}
-        - {x: -35, y: 25}
-        - {x: -36, y: 20}
-        - {x: -36, y: -20}
-        - {x: -25, y: -35}
-        - {x: -22, y: -36}
-        - {x: 23, y: -36}
-        - {x: 36, y: -25}
-        - {x: 36, y: 16}
-        - {x: 29, y: 36}
+      - - {x: 95, y: 128}
+        - {x: -13, y: 76}
+        - {x: -13, y: -83}
+        - {x: 84, y: -128}
+        - {x: 118, y: -128}
+        - {x: 118, y: 128}
+      - - {x: -92, y: 73}
+        - {x: -106, y: 69}
+        - {x: -118, y: 52}
+        - {x: -118, y: -49}
+        - {x: -113, y: -61}
+        - {x: -105, y: -73}
+        - {x: -27, y: -73}
+        - {x: -27, y: 71}
+        - {x: -29, y: 73}
     outline: []
   spritePackingTag: 
   userData: 

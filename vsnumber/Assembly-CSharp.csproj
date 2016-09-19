@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BackgroundControl.cs" />
      <Compile Include="Assets\Scripts\BtnControl.cs" />
      <Compile Include="Assets\Scripts\BtnControlVs1.cs" />
      <Compile Include="Assets\Scripts\BtnControlVs2.cs" />

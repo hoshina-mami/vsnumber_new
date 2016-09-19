@@ -24,9 +24,9 @@ public class BtnGeneratorVs2 : MonoBehaviour {
 	void Start () {
 		Application.targetFrameRate = 60;
 		
-		newScale.x = 1.2f;
-		newScale.y = 1.2f;
-		newScale.z = 1.2f;
+		newScale.x = 1.4f;
+		newScale.y = 1.4f;
+		newScale.z = 1.4f;
 		newRotation.z = 180;
 
         for (int i = 0; i < deck.Length; i++) {

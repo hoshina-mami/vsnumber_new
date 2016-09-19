@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ControlResult : MonoBehaviour {
 
+	public Sprite background1;
+	public Sprite background2;
+	public Sprite background3;
+	public Sprite background4;
+	public Sprite background5;
+
 	//private
 	private GameObject GameUi;
 	private GameObject Text_currentTime;
@@ -12,6 +18,7 @@ public class ControlResult : MonoBehaviour {
 	private GameObject Text_bestName;
 	private GameObject Text_newTime;
 	private GameObject Popup;
+	private GameObject Background;
 
 	private int BestMinCount;
 	private int BestSecCount;
@@ -43,6 +50,7 @@ public class ControlResult : MonoBehaviour {
         Text_bestName    = GameObject.Find("Text_bestName");
         Text_newTime     = GameObject.Find("Text_newTime");
         Popup            = GameObject.Find("Popup");
+        Background       = GameObject.Find("Background");
 
         BestMinCount = PlayerPrefs.GetInt("BestMin");
 		BestSecCount = PlayerPrefs.GetInt("BestSec");
@@ -51,6 +59,8 @@ public class ControlResult : MonoBehaviour {
         CurrentMinCount = PlayerPrefs.GetInt("CurrentMin");
 		CurrentSecCount = PlayerPrefs.GetInt("CurrentSec");
 		CurrentDecCount = PlayerPrefs.GetFloat("CurrentDec");
+
+		changeBackground();
 
 		if(PlayerPrefs.GetString("BestName") == "") {
 			BestName = "AAA";
@@ -68,7 +78,12 @@ public class ControlResult : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+			// エスケープキー取得
+		    if (Input.GetKey(KeyCode.Escape))
+		    {
+		        tapReturnButton();
+		        return;
+		    }
 	}
 
 	// 戻るボタンを選択
@@ -124,6 +139,30 @@ public class ControlResult : MonoBehaviour {
 		if (PlayerPrefs.GetInt("isFirstPlay") == 0) {
 			PlayerPrefs.SetInt("isFirstPlay", 1);
 		}
+    }
+
+    //背景画像変更
+    void changeBackground () {
+    	switch (PlayerPrefs.GetInt("BackNum")) {
+    		case 1:
+    			Background.GetComponent<Image> ().sprite = background1;
+    			break;
+    		case 2:
+    			Background.GetComponent<Image> ().sprite = background2;
+    			break;
+    		case 3:
+    			Background.GetComponent<Image> ().sprite = background3;
+    			break;
+    		case 4:
+    			Background.GetComponent<Image> ().sprite = background4;
+    			break;
+    		case 5:
+    			Background.GetComponent<Image> ().sprite = background5;
+    			break;
+    		default:
+    			Background.GetComponent<Image> ().sprite = background1;
+    			break;
+    	}
     }
 
 

@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ControlVs : MonoBehaviour {
 
+	public Sprite background1;
+	public Sprite background2;
+	public Sprite background3;
+	public Sprite background4;
+	public Sprite background5;
+
 	//private
 	private GameObject GameUi;
 	private GameObject Btn_return;
@@ -22,6 +28,7 @@ public class ControlVs : MonoBehaviour {
 	private GameObject finish2;
 	private GameObject Text_result1;
 	private GameObject Text_result2;
+	private GameObject Background;
 	private Text Text_countDown_text;
 	private Timer Timer;
 	private BtnGeneratorVs1 BtnGeneratorVs1;
@@ -57,10 +64,13 @@ public class ControlVs : MonoBehaviour {
         finish2         = GameObject.Find("finish2");
         Text_result1    = GameObject.Find("Text_result1");
         Text_result2    = GameObject.Find("Text_result2");
+        Background      = GameObject.Find("Background");
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
         Timer           = Box_Timer.GetComponent<Timer>();
         BtnGeneratorVs1 = GameObject.Find("BtnGenerator").GetComponent<BtnGeneratorVs1>();
         BtnGeneratorVs2 = GameObject.Find("BtnGenerator2").GetComponent<BtnGeneratorVs2>();
+
+        changeBackground();
 
         CurrentNum1 = 1;
         CurrentNum2 = 1;
@@ -88,6 +98,30 @@ public class ControlVs : MonoBehaviour {
     // タイトル画面へとぶ
     public void LoadTitle () {
         SceneManager.LoadScene("Title");
+    }
+
+    //背景画像変更
+    void changeBackground () {
+    	switch (PlayerPrefs.GetInt("BackNum")) {
+    		case 1:
+    			Background.GetComponent<Image> ().sprite = background1;
+    			break;
+    		case 2:
+    			Background.GetComponent<Image> ().sprite = background2;
+    			break;
+    		case 3:
+    			Background.GetComponent<Image> ().sprite = background3;
+    			break;
+    		case 4:
+    			Background.GetComponent<Image> ().sprite = background4;
+    			break;
+    		case 5:
+    			Background.GetComponent<Image> ().sprite = background5;
+    			break;
+    		default:
+    			Background.GetComponent<Image> ().sprite = background1;
+    			break;
+    	}
     }
 
 

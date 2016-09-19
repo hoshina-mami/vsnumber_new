@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ControlSingle : MonoBehaviour {
 
+	public Sprite background1;
+	public Sprite background2;
+	public Sprite background3;
+	public Sprite background4;
+	public Sprite background5;
+
 	//private
 	private GameObject GameUi;
 	private GameObject Btn_return;
@@ -17,6 +23,7 @@ public class ControlSingle : MonoBehaviour {
 	private GameObject Text_bestName;
 	private GameObject Text_countDown;
 	private GameObject Text_complete;
+	private GameObject Background;
 	private Text Text_countDown_text;
 	private Timer Timer;
 
@@ -47,8 +54,11 @@ public class ControlSingle : MonoBehaviour {
         Text_bestName   = GameObject.Find("Text_bestName");
         Text_countDown  = GameObject.Find("Text_countDown");
         Text_complete   = GameObject.Find("Text_complete");
+        Background      = GameObject.Find("Background");
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
         Timer           = Box_Timer.GetComponent<Timer>();
+
+        changeBackground();
 
         CurrentNum = 1;
         CountDownNum = 3;
@@ -86,6 +96,32 @@ public class ControlSingle : MonoBehaviour {
     public void LoadTitle () {
         SceneManager.LoadScene("Title");
     }
+
+
+    //背景画像変更
+    void changeBackground () {
+    	switch (PlayerPrefs.GetInt("BackNum")) {
+    		case 1:
+    			Background.GetComponent<Image> ().sprite = background1;
+    			break;
+    		case 2:
+    			Background.GetComponent<Image> ().sprite = background2;
+    			break;
+    		case 3:
+    			Background.GetComponent<Image> ().sprite = background3;
+    			break;
+    		case 4:
+    			Background.GetComponent<Image> ().sprite = background4;
+    			break;
+    		case 5:
+    			Background.GetComponent<Image> ().sprite = background5;
+    			break;
+    		default:
+    			Background.GetComponent<Image> ().sprite = background1;
+    			break;
+    	}
+    }
+
 
     //これまでの最高記録を表示
     void showBestRecord () {

@@ -197,6 +197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034364de5d06e4640b50d401c9f548d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background1: {fileID: 21300000, guid: 60d7cb742cdba4ae38517f811a548a6f, type: 3}
+  background2: {fileID: 21300000, guid: 218d00bc227a74c40ac90a7adf209f1b, type: 3}
+  background3: {fileID: 21300000, guid: 93803b877e6e24b7998bfc7ff8400218, type: 3}
+  background4: {fileID: 21300000, guid: 0d8397f36a52f4dcda5412357c1a24c9, type: 3}
+  background5: {fileID: 21300000, guid: e17d8c6e4d411455e8f4efba3823df3b, type: 3}
 --- !u!1 &292727687
 GameObject:
   m_ObjectHideFlags: 0
