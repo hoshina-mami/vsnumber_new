@@ -16,6 +16,12 @@ public class ControlOption : MonoBehaviour {
 	private GameObject Background;
 	private GameObject Text_bestTime;
 	private GameObject Text_bestName;
+	private GameObject Toggle1;
+	private GameObject Toggle2;
+
+    private AudioSource se_ok;
+    private AudioSource se_cancel;
+    private AudioSource se_countdown;
 
 	private int BestMinCount;
 	private int BestSecCount;
@@ -35,6 +41,8 @@ public class ControlOption : MonoBehaviour {
 		Background       = GameObject.Find("Background");
 		Text_bestTime    = GameObject.Find("Text_bestTime");
         Text_bestName    = GameObject.Find("Text_bestName");
+        Toggle1          = GameObject.Find("Toggle1");
+        Toggle2          = GameObject.Find("Toggle2");
 
 		BestMinCount = PlayerPrefs.GetInt("BestMin");
 		BestSecCount = PlayerPrefs.GetInt("BestSec");
@@ -43,6 +51,22 @@ public class ControlOption : MonoBehaviour {
 			BestName = "AAA";
 		} else {
 			BestName = PlayerPrefs.GetString("BestName");
+		}
+
+		AudioSource[] audioSources = GetComponents<AudioSource>();
+		se_ok = audioSources[0];
+		se_cancel = audioSources[1];
+		se_countdown = audioSources[2];
+
+		//音量のON/OFF
+		if (PlayerPrefs.GetInt("SoundFlg") != 0) {
+			AudioListener.volume = 0;
+			Toggle1.GetComponent<Toggle>().isOn = false;
+			Toggle2.GetComponent<Toggle>().isOn = true;
+		} else {
+			AudioListener.volume = 0.7f;
+			Toggle1.GetComponent<Toggle>().isOn = true;
+			Toggle2.GetComponent<Toggle>().isOn = false;
 		}
 
 		changeBackground();
@@ -68,7 +92,7 @@ public class ControlOption : MonoBehaviour {
 	// 戻るボタンを選択
 	public void tapReturnButton () {
 
-		//GetComponent<AudioSource>().Play();
+		se_cancel.PlayOneShot(se_cancel.clip);
 
 		HideContents();
 
@@ -79,6 +103,17 @@ public class ControlOption : MonoBehaviour {
 	// タイトル画面へとぶ
     public void LoadTitle () {
         SceneManager.LoadScene("Title");
+    }
+
+    //サウンド切り替え
+    public void switchSound () {
+    	if (Toggle1.GetComponent<Toggle>().isOn) {
+    		PlayerPrefs.SetInt("SoundFlg", 0);
+    		AudioListener.volume = 0.7f;
+		} else {
+			PlayerPrefs.SetInt("SoundFlg", 1);
+			AudioListener.volume = 0;
+		}
     }
 
 
@@ -113,6 +148,7 @@ public class ControlOption : MonoBehaviour {
 
     //記録のリセット
     public void deleteRecord () {
+    	se_ok.PlayOneShot(se_ok.clip);
     	PlayerPrefs.SetInt("isFirstPlay", 0);
     	PlayerPrefs.SetString("BestName", "");
         PlayerPrefs.SetInt("BestMin", 0);

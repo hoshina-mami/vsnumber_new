@@ -31,6 +31,12 @@ public class ControlSingle : MonoBehaviour {
 	private Text Text_countDown_text;
 	private Timer Timer;
 
+	private AudioSource se_complete;
+    private AudioSource se_ok;
+    private AudioSource se_btn1;
+    private AudioSource se_countdown;
+    private AudioSource se_cancel;
+
 	private int CurrentNum;//現在の数を保存する変数
 	private int CountDownNum;//ゲーム開始時のカウントダウン
 	private int BestMinCount;
@@ -64,6 +70,20 @@ public class ControlSingle : MonoBehaviour {
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
         Timer           = Box_Timer.GetComponent<Timer>();
 
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+		se_complete = audioSources[0];
+		se_ok = audioSources[1];
+		se_btn1 = audioSources[2];
+		se_countdown = audioSources[3];
+		se_cancel = audioSources[4];
+
+		//音量のON/OFF
+		if (PlayerPrefs.GetInt("SoundFlg") != 0) {
+			AudioListener.volume = 0;
+		} else {
+			AudioListener.volume = 0.7f;
+		}
+
         changeBackground();
 
         CurrentNum = 1;
@@ -92,7 +112,7 @@ public class ControlSingle : MonoBehaviour {
 	// 戻るボタンを選択
 	public void tapReturnButton () {
 
-		//GetComponent<AudioSource>().Play();
+		se_cancel.PlayOneShot(se_cancel.clip);
 
 		HideContents();
 
@@ -165,6 +185,8 @@ public class ControlSingle : MonoBehaviour {
 
     // startボタン選択でゲームスタート
     public void startGame () {
+    	//se_ok.PlayOneShot(se_ok.clip);
+
     	Btn_start.GetComponent<uTools.uTweenAlpha> ().enabled = true;
     	Text_bestRecord.GetComponent<uTools.uTweenAlpha> ().enabled = true;
     	Text_countDown.SetActive (true);
@@ -195,13 +217,14 @@ public class ControlSingle : MonoBehaviour {
 	public void addCurrentNum() {
 		 CurrentNum++;
 
-		 // マウスのワールド座標までパーティクルを移動し、パーティクルエフェクトを1つ生成する
+		// マウスのワールド座標までパーティクルを移動し、パーティクルエフェクトを1つ生成する
         pos = _camera.ScreenToWorldPoint(Input.mousePosition + _camera.transform.forward * 10);
         tapEffect.transform.position = pos;
         tapEffect.Emit(1);
 
 		 if (CurrentNum == 16) {
 		 	//クリア表示
+		 	se_complete.PlayOneShot(se_complete.clip);
 		 	Timer.setStartFlg(false);
 		 	Text_complete.GetComponent<uTools.uTweenPosition> ().enabled = true;
 
@@ -214,6 +237,8 @@ public class ControlSingle : MonoBehaviour {
 		 	isPlayed = true;
 		 	Invoke("HideContents",  1.0f);
 		 	Invoke("LoadResult",  1.5f);
+		 } else {
+		 	se_btn1.PlayOneShot(se_btn1.clip);
 		 }
 	}
 
@@ -244,6 +269,7 @@ public class ControlSingle : MonoBehaviour {
 
     //ゲーム開始時のカウントダウン
     void countDownNumber () {
+    	se_countdown.PlayOneShot(se_countdown.clip);
 
 		Text_countDown_text.text  = CountDownNum.ToString();
 

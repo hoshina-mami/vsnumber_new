@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ControlTitle : MonoBehaviour {
 
 	//public
+	public GameObject bgm;//生成したいプレハブ
 	public Sprite background1;
 	public Sprite background2;
 	public Sprite background3;
@@ -13,6 +14,7 @@ public class ControlTitle : MonoBehaviour {
 	public Sprite background5;
 
 	//private
+	private GameObject cloneBgm;
 	private GameObject TitleText;
 	private GameObject Btn_vs;
 	private GameObject Btn_single;
@@ -34,6 +36,18 @@ public class ControlTitle : MonoBehaviour {
 
         PlayerPrefs.SetInt("Win1", 0);
         PlayerPrefs.SetInt("Win2", 0);
+
+        //音量のON/OFF
+		if (PlayerPrefs.GetInt("SoundFlg") != 0) {
+			AudioListener.volume = 0;
+		} else {
+			AudioListener.volume = 0.7f;
+		}
+
+        //BGMを流す
+		if (GameObject.Find("BGM(Clone)") == null) {
+			cloneBgm = (GameObject)Instantiate(bgm);
+		}
 
         //背景を切り替える
         setBackground();
@@ -59,7 +73,7 @@ public class ControlTitle : MonoBehaviour {
 	// メニューボタンを選択
 	public void tapButton (string target) {
 
-		//GetComponent<AudioSource>().Play();
+		GetComponent<AudioSource>().Play();
 
 		hideObjects ();
 

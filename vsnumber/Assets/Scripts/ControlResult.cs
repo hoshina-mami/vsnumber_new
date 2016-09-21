@@ -23,6 +23,11 @@ public class ControlResult : MonoBehaviour {
 	private GameObject Popup;
 	private GameObject Background;
 
+	private AudioSource se_complete;
+    private AudioSource se_ok;
+    private AudioSource se_cancel;
+    private AudioSource se_countdown;
+
 	private int BestMinCount;
 	private int BestSecCount;
 	private float BestDecCount;
@@ -66,6 +71,19 @@ public class ControlResult : MonoBehaviour {
 		CurrentSecCount = PlayerPrefs.GetInt("CurrentSec");
 		CurrentDecCount = PlayerPrefs.GetFloat("CurrentDec");
 
+		AudioSource[] audioSources = GetComponents<AudioSource>();
+		se_complete = audioSources[0];
+		se_ok = audioSources[1];
+		se_cancel = audioSources[2];
+		se_countdown = audioSources[3];
+
+		//音量のON/OFF
+		if (PlayerPrefs.GetInt("SoundFlg") != 0) {
+			AudioListener.volume = 0;
+		} else {
+			AudioListener.volume = 0.7f;
+		}
+
 		changeBackground();
 
 		if(PlayerPrefs.GetString("BestName") == "") {
@@ -97,7 +115,7 @@ public class ControlResult : MonoBehaviour {
 	// 戻るボタンを選択
 	public void tapReturnButton () {
 
-		//GetComponent<AudioSource>().Play();
+		se_cancel.PlayOneShot(se_cancel.clip);
 
 		HideContents();
 
@@ -114,6 +132,8 @@ public class ControlResult : MonoBehaviour {
     // リトライボタンを選択
 	public void tapRetryButton () {
 
+		//se_ok.PlayOneShot(se_ok.clip);
+
 		HideContents();
 
 		Invoke("LoadGame",  0.4f);
@@ -121,6 +141,7 @@ public class ControlResult : MonoBehaviour {
 	}
 	// 再度ゲームを表示
     public void LoadGame () {
+    	se_ok.PlayOneShot(se_ok.clip);
     	if (PlayerPrefs.GetInt("playMode") == 1) {
 			SceneManager.LoadScene("InGameSingle");
 		} else {
@@ -140,6 +161,7 @@ public class ControlResult : MonoBehaviour {
 		PlayerPrefs.SetFloat("BestDec", CurrentDecCount);
 
 		//ポップアップを閉じる
+		se_ok.PlayOneShot(se_ok.clip);
 		Text_bestTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
 		Text_bestName.GetComponent<Text> ().text = "by " + inputField.text;
 		Popup.SetActive(false);
@@ -262,6 +284,7 @@ public class ControlResult : MonoBehaviour {
     	}
     	Text_newTime.GetComponent<Text> ().text = MinText +":"+ SecText +":"+ DecText;
     	Popup.GetComponent<uTools.uTweenPosition> ().enabled = true;
+    	se_complete.PlayOneShot(se_complete.clip);
     }
 
 

@@ -42,6 +42,12 @@ public class ControlVs : MonoBehaviour {
 	private BtnGeneratorVs1 BtnGeneratorVs1;
 	private BtnGeneratorVs2 BtnGeneratorVs2;
 
+	private AudioSource se_complete;
+    private AudioSource se_btn1;
+    private AudioSource se_btn2;
+    private AudioSource se_countdown;
+    private AudioSource se_cancel;
+
 	private int CurrentNum1;//現在の数を保存する変数
 	private int CurrentNum2;//現在の数を保存する変数
 	private int CountDownNum;//ゲーム開始時のカウントダウン
@@ -86,22 +92,35 @@ public class ControlVs : MonoBehaviour {
         BtnGeneratorVs1 = GameObject.Find("BtnGenerator").GetComponent<BtnGeneratorVs1>();
         BtnGeneratorVs2 = GameObject.Find("BtnGenerator2").GetComponent<BtnGeneratorVs2>();
 
-        changeBackground();
-
-        CurrentNum1 = 1;
-        CurrentNum2 = 1;
-        CountDownNum = 3;
-
         Box_Timer.SetActive(false);
         finish1.SetActive(false);
         finish2.SetActive(false);
-
         Text_Win1.GetComponent<Text> ().text = PlayerPrefs.GetInt("Win1").ToString();
         Text_Win2.GetComponent<Text> ().text = PlayerPrefs.GetInt("Win2").ToString();
         Win1.SetActive(false);
         Win2.SetActive(false);
 
+        CurrentNum1 = 1;
+        CurrentNum2 = 1;
+        CountDownNum = 3;
+
         isPlayed = false;
+
+        changeBackground();
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+		se_complete = audioSources[0];
+		se_btn1 = audioSources[1];
+		se_btn2 = audioSources[2];
+		se_countdown = audioSources[3];
+		se_cancel = audioSources[4];
+
+		//音量のON/OFF
+		if (PlayerPrefs.GetInt("SoundFlg") != 0) {
+			AudioListener.volume = 0;
+		} else {
+			AudioListener.volume = 0.7f;
+		}
 	
 	}
 	
@@ -110,11 +129,11 @@ public class ControlVs : MonoBehaviour {
 	// 戻るボタンを選択
 	public void tapReturnButton () {
 
-		//GetComponent<AudioSource>().Play();
-
 		HideContents();
 
 		Invoke("LoadTitle",  0.4f);
+
+		se_cancel.PlayOneShot(se_cancel.clip);
 
 	}
 
@@ -197,6 +216,7 @@ public class ControlVs : MonoBehaviour {
 
 		 if (CurrentNum1 == 16) {
 		 	//クリア表示
+		 	se_complete.PlayOneShot(se_complete.clip);
 		 	Timer.setStartFlg(false);
 		 	finish1.SetActive(true);
         	finish2.SetActive(true);
@@ -214,6 +234,8 @@ public class ControlVs : MonoBehaviour {
 
 		 	isPlayed = true;
 	
+		 } else {
+		 	se_btn1.PlayOneShot(se_btn1.clip);
 		 }
 	}
 
@@ -254,6 +276,7 @@ public class ControlVs : MonoBehaviour {
 
 		 if (CurrentNum2 == 16) {
 		 	//クリア表示
+		 	se_complete.PlayOneShot(se_complete.clip);
 		 	Timer.setStartFlg(false);
 		 	finish1.SetActive(true);
         	finish2.SetActive(true);
@@ -268,19 +291,21 @@ public class ControlVs : MonoBehaviour {
 		 	Invoke("UpdateWinCount",  1f);
 
 		 	isPlayed = true;
+		 } else {
+		 	se_btn2.PlayOneShot(se_btn2.clip);
 		 }
 	}
 
 	public void endGame () {
     	//結果画面へ飛ばす
-	 	Invoke("HideContents",  1.5f);
-	 	Invoke("LoadResult",  2.0f);
+	 	Invoke("HideContents",  0.3f);
+	 	Invoke("LoadResult",  0.7f);
     }
 
 
 	//ゲーム中のボタンを押した時の処理
     public void tapNumberBtn () {
-    	Debug.Log("tap");
+    	//Debug.Log("tap");
     }
 
 
@@ -306,6 +331,7 @@ public class ControlVs : MonoBehaviour {
 
     //ゲーム開始時のカウントダウン
     void countDownNumber () {
+    	se_countdown.PlayOneShot(se_countdown.clip);
 
 		Text_countDown_text.text  = CountDownNum.ToString();
 
