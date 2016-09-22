@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\ControlTitle.cs" />
      <Compile Include="Assets\Scripts\ControlVs.cs" />
      <Compile Include="Assets\Scripts\TapEffect.cs" />
+     <Compile Include="Assets\Scripts\TextLocalizer.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uDragObject.cs" />
      <Compile Include="Assets\uGUI\Scripts\Internal\uEnum.cs" />
