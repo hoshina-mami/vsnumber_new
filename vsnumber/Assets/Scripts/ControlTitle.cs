@@ -109,9 +109,9 @@ public class ControlTitle : MonoBehaviour {
 	public void tapShareButton (string target) {
 
 		if (target == "twitter") {
-			Application.OpenURL("http://twitter.com/intent/tweet?text=" + WWW.EscapeURL("テキスト #vsnumber"));
+			Application.OpenURL("http://twitter.com/intent/tweet?text=" + WWW.EscapeURL("二人で暇つぶし脳トレゲーム-VS Number https://play.google.com/store/apps/details?id=com.mamimomo.vsnumber #vsnumber"));
 		} else if (target == "line") {
-			Application.OpenURL("http://line.naver.jp/R/msg/text/?" + WWW.EscapeURL("テキスト", System.Text.Encoding.UTF8));
+			Application.OpenURL("http://line.naver.jp/R/msg/text/?" + WWW.EscapeURL("二人で暇つぶし脳トレゲーム-VS Number https://play.google.com/store/apps/details?id=com.mamimomo.vsnumber", System.Text.Encoding.UTF8));
 		}
 	}
 
