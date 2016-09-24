@@ -46,6 +46,20 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CSWTools\SpritePacker\Editor\SpritePackerWindow.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Editor\CocoaPodHelper.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Editor\PostProcessor.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\AdMobDependencies.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\CommandLine.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\CommandLineDialog.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\DefaultResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\IResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\PlayServicesResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_1.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_2.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\SampleDependencies.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\SettingsDialog.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\TextAreaDialog.cs" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Unlit-Alpha Premultiplied.shader" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
@@ -71,6 +85,9 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="JarResolverLib">
+ <HintPath>/Users/hoshinamami/vsnumber_new/vsnumber/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -85,6 +102,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{BFE5CD96-50BA-A038-54A4-096EE20FB197}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{F9A2F228-0316-695F-9273-F567471E9954}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
