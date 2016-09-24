@@ -24,8 +24,8 @@ public class BtnGeneratorVs2 : MonoBehaviour {
 	void Start () {
 		Application.targetFrameRate = 60;
 		
-		newScale.x = 1.6f;
-		newScale.y = 1.6f;
+		newScale.x = 1.9f;
+		newScale.y = 1.9f;
 		newScale.z = 0f;
 		newPosition.z = 0f;
 		newRotation.z = 180;

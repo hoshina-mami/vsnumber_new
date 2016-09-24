@@ -26,8 +26,8 @@ public class BtnGenerator : MonoBehaviour {
 		Content = GameObject.Find("Content");
 		Content2 = GameObject.Find("Content2");
 
-		newScale.x = 1.6f;
-		newScale.y = 1.6f;
+		newScale.x = 1.9f;
+		newScale.y = 1.9f;
 		newScale.z = 0f;
 		newPosition.z = 0f;
 

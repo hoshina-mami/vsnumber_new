@@ -18,6 +18,8 @@ public class ControlTitle : MonoBehaviour {
 	private GameObject TitleText;
 	private GameObject Btn_vs;
 	private GameObject Btn_single;
+	private GameObject Btn_twit;
+	private GameObject Btn_line;
 	//private GameObject Btn_record;
 	private GameObject Btn_setting;
 	private GameObject Background;
@@ -32,6 +34,8 @@ public class ControlTitle : MonoBehaviour {
         Btn_single      = GameObject.Find("Btn_single");
         //Btn_record      = GameObject.Find("Btn_record");
         Btn_setting     = GameObject.Find("Btn_setting");
+        Btn_twit        = GameObject.Find("Btn_twit");
+        Btn_line        = GameObject.Find("Btn_line");
         Background      = GameObject.Find("Background");
 
         PlayerPrefs.SetInt("Win1", 0);
@@ -84,8 +88,6 @@ public class ControlTitle : MonoBehaviour {
 		} else if (target == "Option") {
 			Invoke("LoadOption",  0.4f);
 		}
-		
-
 	}
 
     // SingleMode選択画面へとぶ
@@ -102,6 +104,16 @@ public class ControlTitle : MonoBehaviour {
     public void LoadOption () {
     	SceneManager.LoadScene("Option");
     }
+
+    // shareボタンを選択
+	public void tapShareButton (string target) {
+
+		if (target == "twitter") {
+			Application.OpenURL("http://twitter.com/intent/tweet?text=" + WWW.EscapeURL("テキスト #vsnumber"));
+		} else if (target == "line") {
+			Application.OpenURL("http://line.naver.jp/R/msg/text/?" + WWW.EscapeURL("テキスト", System.Text.Encoding.UTF8));
+		}
+	}
 
 
     //背景画像変更
@@ -141,6 +153,8 @@ public class ControlTitle : MonoBehaviour {
 		Btn_single.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		//Btn_record.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		Btn_setting.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		Btn_twit.GetComponent<uTools.uTweenAlpha> ().enabled = true;
+		Btn_line.GetComponent<uTools.uTweenAlpha> ().enabled = true;
 		
 	}
 }
