@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 051bdf1c6f5704e6cb736eb7ef51239b
-timeCreated: 1474704058
+timeCreated: 1474708296
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -75,19 +75,29 @@ TextureImporter:
     - name: btn_small
       rect:
         serializedVersion: 2
-        x: 144
-        y: 2017
-        width: 27
-        height: 27
+        x: 859
+        y: 1538
+        width: 90
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -45, y: 45}
+        - {x: -45, y: -45}
+        - {x: 44, y: -45}
+        - {x: 45, y: -44}
+        - {x: 45, y: 43}
+        - {x: 43, y: 45}
+      - - {x: -39, y: -37}
+        - {x: -37, y: 39}
+        - {x: 39, y: 38}
+        - {x: 37, y: -39}
     - name: background_1
       rect:
         serializedVersion: 2
         x: 1079
-        y: 0
+        y: 85
         width: 26
         height: 648
       alignment: 0
@@ -98,7 +108,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1107
-        y: 0
+        y: 85
         width: 26
         height: 648
       alignment: 0
@@ -108,19 +118,28 @@ TextureImporter:
     - name: btn_big
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2017
-        width: 113
-        height: 25
+        x: 1079
+        y: 0
+        width: 360
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -177, y: 41.5}
+        - {x: -180, y: 38.5}
+        - {x: -180, y: -41.5}
+        - {x: 180, y: -41.5}
+        - {x: 180, y: 41.5}
+      - - {x: -171, y: 35.5}
+        - {x: 169, y: 35.5}
+        - {x: 168, y: -35.5}
+        - {x: -169, y: -35.5}
     - name: btn_twitter
       rect:
         serializedVersion: 2
-        x: 713
-        y: 1684
+        x: 805
+        y: 1897
         width: 90
         height: 81
       alignment: 0
@@ -149,68 +168,105 @@ TextureImporter:
     - name: btn_setting
       rect:
         serializedVersion: 2
-        x: 713
-        y: 1767
-        width: 37
-        height: 33
+        x: 805
+        y: 1814
+        width: 90
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18.5, y: 16.5}
-        - {x: -18.5, y: -16.5}
-        - {x: 18.5, y: -16.5}
-        - {x: 18.5, y: 16.5}
+      - - {x: -45, y: 40.5}
+        - {x: -45, y: -40.5}
+        - {x: 45, y: -40.5}
+        - {x: 45, y: 40.5}
+      - - {x: -39, y: -31.5}
+        - {x: -36, y: 34.5}
+        - {x: 38, y: 32.5}
+        - {x: -35, y: -34.5}
+      - - {x: 17, y: 29.5}
+        - {x: -11, y: 29.5}
+        - {x: -30, y: 21.5}
+        - {x: -30, y: -13.5}
+        - {x: -18, y: -27.5}
+        - {x: -16, y: -30.5}
+        - {x: 22, y: -30.5}
+        - {x: 30, y: -27.5}
+        - {x: 30, y: 16.5}
+        - {x: 29, y: 19.5}
     - name: btn_return
       rect:
         serializedVersion: 2
-        x: 918
-        y: 1719
-        width: 37
-        height: 33
+        x: 713
+        y: 1897
+        width: 90
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18.5, y: 16.5}
-        - {x: -18.5, y: -16.5}
-        - {x: 18.5, y: -16.5}
-        - {x: 18.5, y: 16.5}
+      - - {x: -43, y: 40.5}
+        - {x: -45, y: 38.5}
+        - {x: -45, y: -40.5}
+        - {x: 45, y: -40.5}
+        - {x: 45, y: 40.5}
+      - - {x: -39, y: -31.5}
+        - {x: -36, y: 34.5}
+        - {x: 39, y: 32.5}
+        - {x: 37, y: -34.5}
+      - - {x: 25, y: 21.5}
+        - {x: -2, y: 33.5}
+        - {x: -5, y: 33.5}
+        - {x: -31, y: 19.5}
+        - {x: -31, y: -30.5}
+        - {x: 33, y: -30.5}
+        - {x: 34, y: -26.5}
+        - {x: 35, y: -20.5}
+        - {x: 35, y: 11.5}
     - name: btn_select_out
       rect:
         serializedVersion: 2
-        x: 859
-        y: 1621
-        width: 54
-        height: 54
+        x: 713
+        y: 1684
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 19, y: 27}
-        - {x: -20, y: 27}
-        - {x: -27, y: 19}
-        - {x: -27, y: -19}
-        - {x: -16, y: -27}
-        - {x: 18, y: -27}
-        - {x: 27, y: -18}
-        - {x: 27, y: 16}
-        - {x: 23, y: 26}
-      - - {x: -18, y: -6}
-        - {x: -11, y: 15}
-        - {x: 18, y: -6}
-        - {x: 6, y: -18}
+      - - {x: -39, y: 64}
+        - {x: -64, y: 38}
+        - {x: -64, y: -47}
+        - {x: -35, y: -64}
+        - {x: 49, y: -64}
+        - {x: 64, y: -43}
+        - {x: 64, y: 30}
+        - {x: 46, y: 64}
+      - - {x: -26, y: -43}
+        - {x: -38, y: 33}
+        - {x: 26, y: 43}
+        - {x: 38, y: -33}
     - name: btn_select
       rect:
         serializedVersion: 2
-        x: 752
-        y: 1767
-        width: 30
-        height: 30
+        x: 1441
+        y: 0
+        width: 72
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -20, y: 36}
+        - {x: -35, y: 25}
+        - {x: -36, y: 20}
+        - {x: -36, y: -20}
+        - {x: -25, y: -35}
+        - {x: -22, y: -36}
+        - {x: 23, y: -36}
+        - {x: 36, y: -25}
+        - {x: 36, y: 16}
+        - {x: 29, y: 36}
     - name: background_5
       rect:
         serializedVersion: 2
@@ -229,8 +285,8 @@ TextureImporter:
     - name: icon_king
       rect:
         serializedVersion: 2
-        x: 918
-        y: 1684
+        x: 843
+        y: 1767
         width: 37
         height: 33
       alignment: 0
@@ -247,8 +303,8 @@ TextureImporter:
     - name: icon_star
       rect:
         serializedVersion: 2
-        x: 879
-        y: 1719
+        x: 898
+        y: 1630
         width: 37
         height: 33
       alignment: 0
@@ -266,8 +322,8 @@ TextureImporter:
     - name: icon_timer
       rect:
         serializedVersion: 2
-        x: 879
-        y: 1684
+        x: 859
+        y: 1630
         width: 37
         height: 33
       alignment: 0
@@ -291,25 +347,22 @@ TextureImporter:
     - name: btn_return2
       rect:
         serializedVersion: 2
-        x: 915
-        y: 1621
-        width: 37
-        height: 33
+        x: 713
+        y: 1814
+        width: 90
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 0.5, y: 14.5}
-        - {x: -3.5, y: 14.5}
-        - {x: -14.5, y: 3.5}
-        - {x: -14.5, y: 1.5}
-        - {x: -11.5, y: -1.5}
-        - {x: -14.5, y: -1.5}
-        - {x: -14.5, y: -14.5}
-        - {x: 7.5, y: -14.5}
-        - {x: 16.5, y: -8.5}
-        - {x: 16.5, y: 5.5}
-        - {x: 7.5, y: 13.5}
+      - - {x: 9, y: 31.5}
+        - {x: -21, y: 31.5}
+        - {x: -31, y: 24.5}
+        - {x: -31, y: -30.5}
+        - {x: 33, y: -30.5}
+        - {x: 34, y: -26.5}
+        - {x: 35, y: -24.5}
+        - {x: 35, y: 16.5}
     - name: background_4
       rect:
         serializedVersion: 2
@@ -343,7 +396,7 @@ TextureImporter:
     - name: white
       rect:
         serializedVersion: 2
-        x: 115
+        x: 0
         y: 2017
         width: 27
         height: 27
@@ -379,8 +432,8 @@ TextureImporter:
     - name: img_circle
       rect:
         serializedVersion: 2
-        x: 805
-        y: 1684
+        x: 1515
+        y: 0
         width: 72
         height: 72
       alignment: 0
@@ -768,8 +821,8 @@ TextureImporter:
     - name: btn_line
       rect:
         serializedVersion: 2
-        x: 859
-        y: 1538
+        x: 843
+        y: 1684
         width: 90
         height: 81
       alignment: 0

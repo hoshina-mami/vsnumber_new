@@ -30,6 +30,7 @@ public class ControlSingle : MonoBehaviour {
 	private GameObject Background;
 	private Text Text_countDown_text;
 	private Timer Timer;
+	private GameObject _AdBannerObserver;
 
 	private AudioSource se_complete;
     private AudioSource se_ok;
@@ -70,6 +71,8 @@ public class ControlSingle : MonoBehaviour {
         Text_countDown_text = Text_countDown.GetComponent<Text> ();
         Timer           = Box_Timer.GetComponent<Timer>();
 
+        _AdBannerObserver  = GameObject.Find("_AdBannerObserver");
+
         AudioSource[] audioSources = GetComponents<AudioSource>();
 		se_complete = audioSources[0];
 		se_ok = audioSources[1];
@@ -90,6 +93,7 @@ public class ControlSingle : MonoBehaviour {
         CountDownNum = 3;
 
         Box_Timer.SetActive(false);
+        _AdBannerObserver.SetActive(false);
 
         BestMinCount = PlayerPrefs.GetInt("BestMin");
 		BestSecCount = PlayerPrefs.GetInt("BestSec");

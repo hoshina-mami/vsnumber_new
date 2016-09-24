@@ -1471,6 +1471,61 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1140812074}
+--- !u!1 &1168579283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1168579285}
+  - 114: {fileID: 1168579284}
+  - 114: {fileID: 1168579286}
+  m_Layer: 0
+  m_Name: AdMob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1168579284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168579283}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea9fb5db9d44d22b51f1e732b98870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1168579285
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168579283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 121.51817, y: 171.45049, z: -291.5605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!114 &1168579286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168579283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234d8330160c545a3a14c0a37bcca42f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAdMobPublisherId: ca-app-pub-5692467634128678/8319125342
+  mAdMobTestDeviceId: 
+  mRefreshTime: 60
+  mLayoutGravity: 81
 --- !u!1 &1258528684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,7 +1675,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 135.46, y: -170}
-  m_SizeDelta: {x: 90, y: 81}
+  m_SizeDelta: {x: 90.365, y: 80.596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623048761
 MonoBehaviour:

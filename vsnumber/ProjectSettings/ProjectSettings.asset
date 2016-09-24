@@ -158,8 +158,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: /Users/hoshinamami/vsnumber_new/user.keystore
+  AndroidKeyaliasName: vsnumber
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
